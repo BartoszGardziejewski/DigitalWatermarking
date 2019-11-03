@@ -1,4 +1,7 @@
 import itertools
+
+from math import floor
+
 from python.src.common.ImageManagement import *
 from python.src.common.ImageGeneration import *
 
@@ -14,16 +17,17 @@ def embedImageInAnotherImage(baseImage, embeddedImage):
         for pixelRowNumber, pixelColumnNumber in createIteratorOverPixels(baseImage[..., currentColor]):
             currentBasePixel = baseImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
             currentEmbeddedPixel = embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
-            embeddedLSB = (currentEmbeddedPixel % 2) == 1
+            embeddedMSB = (currentEmbeddedPixel / 128) == 1
             baseImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = \
-                calculateValueWithNewLSB(currentBasePixel, embeddedLSB)
+                calculateValueWithNewLSB(currentBasePixel, embeddedMSB)
+            embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = 128 * embeddedMSB
 
     saveImage(baseImage, "python_random.bmp")
-    saveImage(embeddedImage, "random.bmp")
+    saveImage(embeddedImage, "embedded_image.bmp")
 
 
-def calculateValueWithNewLSB(baseLSB, embeddedLSB):
-    return (baseLSB & ~1) | embeddedLSB
+def calculateValueWithNewLSB(baseLSB, embeddedMSB):
+    return (baseLSB & ~1) | embeddedMSB
 
 
 def createIteratorOverPixels(greyImage):
