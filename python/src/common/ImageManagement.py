@@ -13,7 +13,11 @@ def loadImage(fileName="python.bmp"):
     return io.imread("../resources/" + fileName)
 
 
+def loadImages(imagesPath="./test"):
+    return io.ImageCollection("../resources/" + imagesPath + "/*.bmp")
+
+
 # Save image to resources folder
-def saveImage(image, fileName="python.bmp"):
-    io.imsave("../resources/" + fileName, image)
+def saveImage(image, imagePath="python.bmp"):
+    io.imsave("../resources/" + imagePath, image)
 

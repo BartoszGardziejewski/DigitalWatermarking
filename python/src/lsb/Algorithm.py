@@ -1,8 +1,4 @@
 import itertools
-
-from math import floor
-
-from python.src.common.ImageManagement import *
 from python.src.common.ImageGeneration import *
 
 
