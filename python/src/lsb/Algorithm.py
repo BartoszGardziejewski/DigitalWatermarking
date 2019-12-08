@@ -19,8 +19,8 @@ def watermarkImage(baseImage, embeddedImage):
                 calculateValueWithNewLSB(currentBasePixel, embeddedMSB)
 
     return watermarkedImage
-# ./test/python.bmp
-# watermark.bmp
+
+
 def calculateValueWithNewLSB(baseLSB, embeddedMSB):
     bitShift = 0
     return (baseLSB & ~(1 << bitShift)) | (embeddedMSB << bitShift)
