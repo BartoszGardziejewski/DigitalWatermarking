@@ -1,29 +1,29 @@
 import itertools
-from python.src.common.ImageGeneration import *
+
+import math
 
 
-def embedRandomNoiseInImage(baseImage):
-    embedImage = generateRandomImageWithParametersLike(baseImage)
-    return embedImageInAnotherImage(baseImage, embedImage)
-
-
-def embedImageInAnotherImage(baseImage, embeddedImage):
-
+def watermarkImage(baseImage, embeddedImage):
     watermarkedImage = baseImage[:]
-    for currentColor in range(baseImage.shape[2]):
+    if baseImage.shape[2] > embeddedImage.shape[2]:
+        colorsRange = range(embeddedImage.shape[2])
+    else:
+        colorsRange = range(baseImage.shape[2])
+
+    for currentColor in colorsRange:
         for pixelRowNumber, pixelColumnNumber in createIteratorOverPixels(baseImage[..., currentColor]):
             currentBasePixel = baseImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
-            currentEmbeddedPixel = embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
-            embeddedMSB = (currentEmbeddedPixel / 128) == 1
+            currentEmbeddedPixel = embeddedImage[..., currentColor][pixelRowNumber % (len(embeddedImage)-1)][pixelColumnNumber % (len(embeddedImage)-1)]
+            embeddedMSB = (math.floor((currentEmbeddedPixel / 128))) == 1
             watermarkedImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = \
                 calculateValueWithNewLSB(currentBasePixel, embeddedMSB)
-            embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = 128 * embeddedMSB
 
     return watermarkedImage
-
-
+# ./test/python.bmp
+# watermark.bmp
 def calculateValueWithNewLSB(baseLSB, embeddedMSB):
-    return (baseLSB & ~1) | embeddedMSB
+    bitShift = 0
+    return (baseLSB & ~(1 << bitShift)) | (embeddedMSB << bitShift)
 
 
 def createIteratorOverPixels(greyImage):
