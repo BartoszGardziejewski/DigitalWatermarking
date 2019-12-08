@@ -1,40 +1,32 @@
 import itertools
 
-from math import floor
-
-from python.src.common.ImageManagement import *
-from python.src.common.ImageGeneration import *
+import math
 
 
-def embedRandomNoiseInImage(baseImage):
-    embedImage = generateRandomImageWithParametersLike(baseImage)
-    embedImageInAnotherImage(image, embedImage)
+def watermarkImage(baseImage, embeddedImage):
+    watermarkedImage = baseImage[:]
+    if baseImage.shape[2] > embeddedImage.shape[2]:
+        colorsRange = range(embeddedImage.shape[2])
+    else:
+        colorsRange = range(baseImage.shape[2])
 
-
-def embedImageInAnotherImage(baseImage, embeddedImage):
-
-    for currentColor in range(baseImage.shape[2]):
+    for currentColor in colorsRange:
         for pixelRowNumber, pixelColumnNumber in createIteratorOverPixels(baseImage[..., currentColor]):
             currentBasePixel = baseImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
-            currentEmbeddedPixel = embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber]
-            embeddedMSB = (currentEmbeddedPixel / 128) == 1
-            baseImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = \
+            currentEmbeddedPixel = embeddedImage[..., currentColor][pixelRowNumber % (len(embeddedImage)-1)][pixelColumnNumber % (len(embeddedImage)-1)]
+            embeddedMSB = (math.floor((currentEmbeddedPixel / 128))) == 1
+            watermarkedImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = \
                 calculateValueWithNewLSB(currentBasePixel, embeddedMSB)
-            embeddedImage[..., currentColor][pixelRowNumber][pixelColumnNumber] = 128 * embeddedMSB
 
-    saveImage(baseImage, "python_random.bmp")
-    saveImage(embeddedImage, "embedded_image.bmp")
+    return watermarkedImage
 
 
 def calculateValueWithNewLSB(baseLSB, embeddedMSB):
-    return (baseLSB & ~1) | embeddedMSB
+    bitShift = 0
+    return (baseLSB & ~(1 << bitShift)) | (embeddedMSB << bitShift)
 
 
 def createIteratorOverPixels(greyImage):
     imageRows = range(greyImage.shape[0])
     imageColumns = range(greyImage.shape[1])
     return itertools.product(imageRows, imageColumns)
-
-
-image = loadImage("python.bmp")
-embedRandomNoiseInImage(image)
