@@ -2,6 +2,8 @@ import itertools
 
 import math
 
+from numpy.ma import copy
+
 
 def watermarkImage(baseImage, embeddedImage):
     watermarkedImage = baseImage[:]
@@ -22,7 +24,7 @@ def watermarkImage(baseImage, embeddedImage):
 
 
 def calculateValueWithNewLSB(baseLSB, embeddedMSB):
-    bitShift = 0
+    bitShift = 4
     return (baseLSB & ~(1 << bitShift)) | (embeddedMSB << bitShift)
 
 
@@ -30,3 +32,16 @@ def createIteratorOverPixels(greyImage):
     imageRows = range(greyImage.shape[0])
     imageColumns = range(greyImage.shape[1])
     return itertools.product(imageRows, imageColumns)
+
+
+def extractWatermarkFromImage(image):
+
+    bitShift = 4
+    watermark = copy(image)
+    colorsRange = range(watermark.shape[2])
+    for currentColor in colorsRange:
+        for pixelRowNumber, pixelColumnNumber in createIteratorOverPixels(watermark[..., currentColor]):
+            currentPixel = watermark[..., currentColor][pixelRowNumber][pixelColumnNumber]
+            watermark[..., currentColor][pixelRowNumber][pixelColumnNumber] = (currentPixel >> bitShift & 1) * 255
+
+    return watermark
