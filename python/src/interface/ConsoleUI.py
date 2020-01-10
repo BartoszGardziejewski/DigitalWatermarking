@@ -16,7 +16,7 @@ def startInterface():
 
 
 def getImagesToWatermark():
-    resourcesPath = ImageManagement.resourcesDir
+    resourcesPath = ImageManagement.resourcesDirPath
     while True:
         imagePath = input('Please specify image or directory with images to watermark (press Enter to use example '
                           'collection): ')
@@ -36,7 +36,7 @@ def selectImageToUseAsWaterMark(image, file):
             f'collection): ')
         if not imagePath:
             return generateRandomImageWithParametersLike(image)
-        imagePath = ImageManagement.resourcesDir + imagePath
+        imagePath = ImageManagement.resourcesDirPath + imagePath
         if os.path.isfile(imagePath):
             break
         else:
@@ -58,6 +58,9 @@ def selectAlgorithmToUse():
 def watermarkAndSaveImage(algorithm, image, watermark, imagePath):
     watermarkedImage = algorithm.watermarkImage(image, watermark)
     splitName = imagePath.split("/")
-    splitName[-1] = "watermarked_" + splitName[-1]
+
+    splitName[-2] = ImageManagement.resultsDirName
+    resultsDir = "/".join(splitName[:-1])
+    os.makedirs(resultsDir, exist_ok=True)
     outPath = "/".join(splitName)
     ImageManagement.saveImage(watermarkedImage, outPath)
