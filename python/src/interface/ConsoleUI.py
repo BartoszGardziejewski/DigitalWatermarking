@@ -16,34 +16,44 @@ def startInterface():
 
 
 def getImagesToWatermark():
-    imagePath = input('please specify image or directory with images that will be watermarked: ')
-    if os.path.isfile("../resources/" + imagePath):
-        return ImageManagement.loadImages(imagePath, "")
-    elif os.path.isdir("../resources/" + imagePath):
-        return ImageManagement.loadImages(imagePath)
-    else:
-        print("given path is not valid")
+    resourcesPath = ImageManagement.resourcesDir
+    while True:
+        imagePath = input('Please specify image or directory with images to watermark (press Enter to use example '
+                          'collection): ')
+        imagePath = resourcesPath + imagePath
+        if os.path.isfile(imagePath):
+            return ImageManagement.loadImages(imagePath, "")
+        elif os.path.isdir(imagePath):
+            return ImageManagement.loadImages(imagePath)
+        else:
+            print(f'ERROR: Given path <{imagePath}> is not valid, please try again.')
 
 
 def selectImageToUseAsWaterMark(image, file):
-    imagePath = input('please specify image to be used as watermark for '+file+' (empty means use random image): ')
-    if not imagePath:
-        return generateRandomImageWithParametersLike(image)
-    else:
-        if os.path.isfile("../resources/" + imagePath):
-            return ImageManagement.loadImage(imagePath)
+    while True:
+        imagePath = input(
+            f'Please specify image to be used as watermark for {file} (press Enter to use random image from example '
+            f'collection): ')
+        if not imagePath:
+            return generateRandomImageWithParametersLike(image)
+        imagePath = ImageManagement.resourcesDir + imagePath
+        if os.path.isfile(imagePath):
+            break
         else:
-            print("given path is not valid")
+            print(f'ERROR: Given file <{imagePath}> is not valid, please try again.')
+    return ImageManagement.loadImage(imagePath)
 
 
 def selectAlgorithmToUse():
-    algorithmName = input('please specify algorithm to use to watermark image (LSB , PAT): ')
-    if algorithmName == "LSB":
-        return LsbAlgorithm
-    if algorithmName == "PAT":
-        return PatAlgorithm
-    else:
-        print("unknown algorithm")
+    while True:
+        algorithm = input('Please specify algorithm to use to watermark the image (LSB | PAT): ')
+        if algorithm == "LSB":
+            return LsbAlgorithm
+        elif algorithm == "PAT":
+            return PatAlgorithm
+        else:
+            print(f'ERROR: Unknown algorithm {algorithm}. Please try again.')
+
 
 def watermarkAndSaveImage(algorithm, image, watermark, imagePath):
     watermarkedImage = algorithm.watermarkImage(image, watermark)

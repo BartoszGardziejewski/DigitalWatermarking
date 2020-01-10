@@ -1,23 +1,23 @@
 from skimage import io
 from skimage import color
 
+resourcesDir = '../resources/'
+
 
 # Loads from resource folder
-def loadImageAndConvertToYUV(fileName="python.bmp"):
-    image = io.imread("../resources/" + fileName)
+def loadImageAndConvertToYUV(imagePath=resourcesDir + "python.bmp"):
+    image = io.imread(imagePath)
     return color.rgb2yuv(image)
 
 
 # Loads from resources folder
-def loadImage(fileName="python.bmp"):
-    return io.imread("../resources/" + fileName)
+def loadImage(imagePath=resourcesDir + "python.bmp"):
+    return io.imread(imagePath)
 
 
-def loadImages(imagesPath="./test", postfix="/*.bmp"):
-    return io.ImageCollection("../resources/" + imagesPath + postfix)
+def loadImages(imagesPath=resourcesDir + "test", postfix="/*.bmp"):
+    return io.ImageCollection(imagesPath + postfix)
 
 
-# Save image to resources folder
-def saveImage(image, imagePath="python.bmp"):
-    io.imsave("../resources/" + imagePath, image)
-
+def saveImage(image, imagePath=resourcesDir + "python.bmp"):
+    io.imsave(imagePath, image)
