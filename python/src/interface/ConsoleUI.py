@@ -7,15 +7,15 @@ from python.src.patchwork import Algorithm as PatAlgorithm
 
 
 def startInterface():
-    images = getImagesToWatermark()
+    images = _getImagesToWatermark()
 
     for image, file in zip(images, images.files):
-        algorithm, arguments = getAlgorithmWithArguments(image, file)
-        watermarkedImage = watermarkImage(image, algorithm, arguments)
-        saveImage(watermarkedImage, file.replace("\\", "/"))
+        algorithm, arguments = _getAlgorithmWithArguments(image, file)
+        watermarkedImage = _watermarkImage(image, algorithm, arguments)
+        _saveImage(watermarkedImage, file.replace("\\", "/"))
 
 
-def getImagesToWatermark():
+def _getImagesToWatermark():
     resourcesPath = ImageManagement.resourcesDirPath
     while True:
         imagePath = input('Please specify image or directory with images to watermark (press Enter to use example '
@@ -29,7 +29,7 @@ def getImagesToWatermark():
             print(f'ERROR: Given path <{imagePath}> is not valid, please try again.')
 
 
-def selectImageToUseAsWaterMark(image, file):
+def _selectImageToUseAsWaterMark(image, file):
     while True:
         imagePath = input(
             f'Please specify image to be used as watermark for {file} (press Enter to use random image from example '
@@ -44,13 +44,28 @@ def selectImageToUseAsWaterMark(image, file):
     return ImageManagement.loadImage(imagePath)
 
 
-def getAlgorithmWithArguments(image, file):
-    switch = {
-        'LSB': (LsbAlgorithm, {'embeddedImage': selectImageToUseAsWaterMark(image, file)}),
-        'PAT': (PatAlgorithm, None),
-    }
+def _getPatchworkSecretKey(file):
+    return input(f'Please specify the secret key used to watermark the {file}: ')
+
+
+def _getPercentageOfPixelsToWatermark(file):
     while True:
-        choice = input(f'Please specify algorithm to use to watermark the image {switch.keys()}: ')
+        percentage = input(f'Please specify the percentage (0..1] of pixels to watermark the {file}: ')
+        if 0 < float(percentage) <= 1:
+            return percentage
+        else:
+            print(f'ERROR: Given percentage {percentage} not in range (0..1]. Please try again.')
+
+
+def _getAlgorithmWithArguments(image, file):
+    switch = {
+        'LSB': (LsbAlgorithm, {'embeddedImage': _selectImageToUseAsWaterMark(image, file)}),
+        'PAT': (PatAlgorithm, {'key': _getPatchworkSecretKey(file),
+                               'percentage': _getPercentageOfPixelsToWatermark(file)}),
+    }
+
+    while True:
+        choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
         algorithmWithArguments = switch.get(choice, None)
         if algorithmWithArguments:
             return algorithmWithArguments
@@ -58,8 +73,8 @@ def getAlgorithmWithArguments(image, file):
             print(f'ERROR: Unknown algorithm - {choice}. Please try again.')
 
 
-def saveImage(watermarkedImage, imagePath):
-    if watermarkedImage:
+def _saveImage(watermarkedImage, imagePath):
+    if watermarkedImage is not None:
         splitName = imagePath.split("/")
         splitName[-2] = ImageManagement.resultsDirName
         resultsDir = "/".join(splitName[:-1])
@@ -67,10 +82,10 @@ def saveImage(watermarkedImage, imagePath):
         outPath = "/".join(splitName)
         ImageManagement.saveImage(watermarkedImage, outPath)
     else:
-        print(f'ERROR: Could not save watermarked image: {imagePath}')
+        print(f'ERROR: Could not save watermarked image: <{imagePath}>')
 
 
-def watermarkImage(image, algorithm, arguments):
+def _watermarkImage(image, algorithm, arguments):
     if arguments:
         return algorithm.watermarkImage(image, **arguments)
     else:
