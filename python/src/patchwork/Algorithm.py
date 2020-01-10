@@ -6,14 +6,14 @@ from python.src.common.ImageManagement import *
 from python.src.patchwork.PatchworkUtils import *
 
 
-image = loadImageAndConvertToYUV()
-imshow(yuv2rgb(image))
-plt.show()
+def watermarkImage(image):
+    # image = loadImageAndConvertToYUV()
+    # imshow(yuv2rgb(image))
+    # plt.show()
+    #
+    # image = changeLuminanceOfPixel(image, 25, 25, 1)
+    #
+    # imshow(yuv2rgb(image))
+    # plt.show()
 
-image = changeLuminanceOfPixel(image, 25, 25, 1)
-
-imshow(yuv2rgb(image))
-plt.show()
-
-
-
+    pass

@@ -8,11 +8,11 @@ from python.src.patchwork import Algorithm as PatAlgorithm
 
 def startInterface():
     images = getImagesToWatermark()
-    algorithm = selectAlgorithmToUse()
 
     for image, file in zip(images, images.files):
-        watermark = selectImageToUseAsWaterMark(image, file)
-        watermarkAndSaveImage(algorithm, image, watermark, file.replace("\\", "/"))
+        algorithm, arguments = getAlgorithmWithArguments(image, file)
+        watermarkedImage = watermarkImage(image, algorithm, arguments)
+        saveImage(watermarkedImage, file.replace("\\", "/"))
 
 
 def getImagesToWatermark():
@@ -44,23 +44,34 @@ def selectImageToUseAsWaterMark(image, file):
     return ImageManagement.loadImage(imagePath)
 
 
-def selectAlgorithmToUse():
+def getAlgorithmWithArguments(image, file):
+    switch = {
+        'LSB': (LsbAlgorithm, {'embeddedImage': selectImageToUseAsWaterMark(image, file)}),
+        'PAT': (PatAlgorithm, None),
+    }
     while True:
-        algorithm = input('Please specify algorithm to use to watermark the image (LSB | PAT): ')
-        if algorithm == "LSB":
-            return LsbAlgorithm
-        elif algorithm == "PAT":
-            return PatAlgorithm
+        choice = input(f'Please specify algorithm to use to watermark the image {switch.keys()}: ')
+        algorithmWithArguments = switch.get(choice, None)
+        if algorithmWithArguments:
+            return algorithmWithArguments
         else:
-            print(f'ERROR: Unknown algorithm {algorithm}. Please try again.')
+            print(f'ERROR: Unknown algorithm - {choice}. Please try again.')
 
 
-def watermarkAndSaveImage(algorithm, image, watermark, imagePath):
-    watermarkedImage = algorithm.watermarkImage(image, watermark)
-    splitName = imagePath.split("/")
+def saveImage(watermarkedImage, imagePath):
+    if watermarkedImage:
+        splitName = imagePath.split("/")
+        splitName[-2] = ImageManagement.resultsDirName
+        resultsDir = "/".join(splitName[:-1])
+        os.makedirs(resultsDir, exist_ok=True)
+        outPath = "/".join(splitName)
+        ImageManagement.saveImage(watermarkedImage, outPath)
+    else:
+        print(f'ERROR: Could not save watermarked image: {imagePath}')
 
-    splitName[-2] = ImageManagement.resultsDirName
-    resultsDir = "/".join(splitName[:-1])
-    os.makedirs(resultsDir, exist_ok=True)
-    outPath = "/".join(splitName)
-    ImageManagement.saveImage(watermarkedImage, outPath)
+
+def watermarkImage(image, algorithm, arguments):
+    if arguments:
+        return algorithm.watermarkImage(image, **arguments)
+    else:
+        return algorithm.watermarkImage(image)
