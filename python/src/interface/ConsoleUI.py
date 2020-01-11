@@ -8,7 +8,25 @@ from python.src.patchwork import Algorithm as PatAlgorithm
 
 
 def startInterface():
-    images = _getImagesToWatermark()
+    switch = {
+        'E': _encodeImages,
+        'D': _decodeImages,
+    }
+
+    while True:
+        choice = input(f'Do you wish to Encode or Decode images? {[key for key in switch.keys()]}: ')
+        func = switch.get(choice, None)
+        if func:
+            func()
+            break
+        else:
+            print(f'ERROR: Unknown choice - {choice}. Please try again.')
+
+    print('Exit')
+
+
+def _encodeImages():
+    images = _getImages()
 
     for image, file in zip(images, images.files):
         algorithm, kwargs = _getAlgorithmWithArguments(image, file)
@@ -16,12 +34,19 @@ def startInterface():
         _saveImage(watermarkedImage, file.replace("\\", "/"))
 
 
-def _getImagesToWatermark():
-    resourcesPath = ImageManagement.resourcesDirPath
+def _decodeImages():
+    images = _getImages(ImageManagement.resultsDirPath)
+    for image, file in zip(images, images.files):
+        algorithm, kwargs = _getAlgorithmWithArguments(image, file)
+        result = _decodeImage(image, algorithm, kwargs)
+        pass
+
+
+def _getImages(exampleCollection=ImageManagement.resourcesDirPath):
+    return ImageManagement.loadImages(exampleCollection)
     while True:
-        imagePath = input('Please specify image or directory with images to watermark (press Enter to use example '
-                          'collection): ')
-        imagePath = resourcesPath + imagePath
+        imagePath = input('Please specify image or directory with images (press Enter to use example collection): ')
+        imagePath = exampleCollection + imagePath
         if os.path.isfile(imagePath):
             return ImageManagement.loadImages(imagePath, "")
         elif os.path.isdir(imagePath):
@@ -46,6 +71,7 @@ def _selectImageToUseAsWaterMark(image, file):
 
 
 def _getPatchworkSecretKey(file):
+    return 'aaa'
     while True:
         key = input(f'Please specify the secret key used to watermark the {file}: ')
         if key:
@@ -54,29 +80,15 @@ def _getPatchworkSecretKey(file):
             print('ERROR: Key not valid. Please try again.')
 
 
-def _getPercentageOfPixelsToWatermark(file):
-    while True:
-        percentage = input(f'Please specify the percentage [0.25 .. 0.75] of pixels to watermark the {file}: ')
-        try:
-            percentage = float(percentage)
-        except ValueError as e:
-            print(f'ERROR: {e}. Please try again.')
-            continue
-        if 0.25 <= percentage <= 0.75:
-            return percentage
-        else:
-            print(f'ERROR: Given percentage {percentage} not in range [0.25 .. 0.75]. Please try again.')
-
-
 def _getAlgorithmWithArguments(image, file):
     switch = {
         'LSB': (LsbAlgorithm, {'embeddedImage': functools.partial(_selectImageToUseAsWaterMark, image, file)}),
-        'PAT': (PatAlgorithm, {'key': functools.partial(_getPatchworkSecretKey, file),
-                               'percentage': functools.partial(_getPercentageOfPixelsToWatermark, file)}),
+        'PAT': (PatAlgorithm, {'key': functools.partial(_getPatchworkSecretKey, file)}),
     }
 
     while True:
-        choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
+        # choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
+        choice = 'PAT'
         algorithmWithArguments = switch.get(choice, None)
 
         if algorithmWithArguments:
@@ -106,3 +118,10 @@ def _watermarkImage(image, algorithm, kwargs):
         return algorithm.watermarkImage(image, **kwargs)
     else:
         return algorithm.watermarkImage(image)
+
+
+def _decodeImage(image, algorithm, kwargs):
+    if kwargs:
+        return algorithm.decodeImage(image, **kwargs)
+    else:
+        return algorithm.decodeImage(image)
