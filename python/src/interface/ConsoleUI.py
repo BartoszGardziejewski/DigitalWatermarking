@@ -1,4 +1,5 @@
 import os
+import functools
 
 from python.src.common import ImageManagement
 from python.src.common.ImageGeneration import generateRandomImageWithParametersLike
@@ -10,8 +11,8 @@ def startInterface():
     images = _getImagesToWatermark()
 
     for image, file in zip(images, images.files):
-        algorithm, arguments = _getAlgorithmWithArguments(image, file)
-        watermarkedImage = _watermarkImage(image, algorithm, arguments)
+        algorithm, kwargs = _getAlgorithmWithArguments(image, file)
+        watermarkedImage = _watermarkImage(image, algorithm, kwargs)
         _saveImage(watermarkedImage, file.replace("\\", "/"))
 
 
@@ -45,30 +46,45 @@ def _selectImageToUseAsWaterMark(image, file):
 
 
 def _getPatchworkSecretKey(file):
-    return input(f'Please specify the secret key used to watermark the {file}: ')
+    while True:
+        key = input(f'Please specify the secret key used to watermark the {file}: ')
+        if key:
+            return key
+        else:
+            print('ERROR: Key not valid. Please try again.')
 
 
 def _getPercentageOfPixelsToWatermark(file):
     while True:
-        percentage = input(f'Please specify the percentage (0..1] of pixels to watermark the {file}: ')
-        if 0 < float(percentage) <= 1:
+        percentage = input(f'Please specify the percentage [0.25 .. 0.75] of pixels to watermark the {file}: ')
+        try:
+            percentage = float(percentage)
+        except ValueError as e:
+            print(f'ERROR: {e}. Please try again.')
+            continue
+        if 0.25 <= percentage <= 0.75:
             return percentage
         else:
-            print(f'ERROR: Given percentage {percentage} not in range (0..1]. Please try again.')
+            print(f'ERROR: Given percentage {percentage} not in range [0.25 .. 0.75]. Please try again.')
 
 
 def _getAlgorithmWithArguments(image, file):
     switch = {
-        'LSB': (LsbAlgorithm, {'embeddedImage': _selectImageToUseAsWaterMark(image, file)}),
-        'PAT': (PatAlgorithm, {'key': _getPatchworkSecretKey(file),
-                               'percentage': _getPercentageOfPixelsToWatermark(file)}),
+        'LSB': (LsbAlgorithm, {'embeddedImage': functools.partial(_selectImageToUseAsWaterMark, image, file)}),
+        'PAT': (PatAlgorithm, {'key': functools.partial(_getPatchworkSecretKey, file),
+                               'percentage': functools.partial(_getPercentageOfPixelsToWatermark, file)}),
     }
 
     while True:
         choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
         algorithmWithArguments = switch.get(choice, None)
+
         if algorithmWithArguments:
-            return algorithmWithArguments
+            algorithm, kwargs = algorithmWithArguments
+            for key, value in kwargs.items():
+                kwargs[key] = value()
+            return algorithm, kwargs
+
         else:
             print(f'ERROR: Unknown algorithm - {choice}. Please try again.')
 
@@ -85,8 +101,8 @@ def _saveImage(watermarkedImage, imagePath):
         print(f'ERROR: Could not save watermarked image: <{imagePath}>')
 
 
-def _watermarkImage(image, algorithm, arguments):
-    if arguments:
-        return algorithm.watermarkImage(image, **arguments)
+def _watermarkImage(image, algorithm, kwargs):
+    if kwargs:
+        return algorithm.watermarkImage(image, **kwargs)
     else:
         return algorithm.watermarkImage(image)
