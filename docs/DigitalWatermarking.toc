@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}Subject}{2}
+\contentsline {section}{\numberline {2}State of art}{2}
+\contentsline {section}{\numberline {3}Project scope}{4}
+\contentsline {subsection}{\numberline {3.1}Goal}{4}
+\contentsline {subsection}{\numberline {3.2}Communication}{4}
+\contentsline {subsection}{\numberline {3.3}Features}{4}
+\contentsline {subsection}{\numberline {3.4}Requirements}{4}
+\contentsline {section}{\numberline {4}Techniques and Technologies}{4}
+\contentsline {section}{\numberline {5}Milestone and project plan}{4}
+\contentsline {subsection}{\numberline {5.1}Team members}{4}
+\contentsline {subsection}{\numberline {5.2}Project plan}{5}
+\contentsline {subsection}{\numberline {5.3}Gantt Chart}{5}
+\contentsline {subsection}{\numberline {5.4}}{6}
+\contentsline {section}{\numberline {6}Results}{6}
+\contentsline {subsection}{\numberline {6.1}1}{6}
+\contentsline {subsection}{\numberline {6.2}2}{6}
+\contentsline {section}{\numberline {7}Conclusions}{7}
