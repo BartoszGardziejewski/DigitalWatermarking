@@ -1,64 +1,98 @@
-import random
-from skimage.color import rgb2yuv, yuv2rgb
+from skimage import img_as_ubyte
+from skimage.color import rgb2hsv, hsv2rgb
 import numpy as np
-import sys
+from math import sqrt
 
-np.set_printoptions(threshold=sys.maxsize, suppress=True)
+
+def _getColorFormatConversionAlgorithms():
+    luminanceChannel = 2
+    return rgb2hsv, hsv2rgb, luminanceChannel
 
 
 def _getLuminanceValueChange():
-    return 0.001
+    return 0.005
 
 
-def _getPercentageOfPixelsToChange():
-    return 0.25
+# W. Bender, D. Gruhl, N. Morimoto, A. Lu,
+# "Techniques for Data Hiding" IBM Systems Journal, Vol. 35 Nos 3&4, 1996
+def _getNumberOfPixelPairsToChange(image):
+    rows = image.shape[0]
+    columns = image.shape[1]
+    numberOfPixels = rows * columns
+
+    typicalNumber = 30000
+    limitingMultiplier = 2  # we don't want to alter too many pixels in a single image
+
+    if numberOfPixels >= limitingMultiplier * typicalNumber:
+        return typicalNumber
+    else:
+        percentageOfPixels = 1 / limitingMultiplier
+        return int(percentageOfPixels * numberOfPixels)
 
 
 def watermarkImage(image, key):
-    image = rgb2yuv(image)
+    convert, convertBack, luminanceChannel = _getColorFormatConversionAlgorithms()
+    image = convert(image)
 
-    rows = image.shape[0]
-    columns = image.shape[1]
-    valueChange = _getLuminanceValueChange()
+    mask = _getMaskOfDeltas(image, key)
 
-    rows_to_change, columns_to_change = _getPixelsBasedOnKey(rows, columns, key)
-    for row in rows_to_change:
-        for column in columns_to_change:
+    for row in range(mask.shape[0]):
+        for col in range(mask.shape[1]):
+            if image[row, col, luminanceChannel] + mask[row, col] < 1:
+                image[row, col, luminanceChannel] += mask[row, col]
+            elif image[row, col, luminanceChannel] - mask[row, col] > 0:
+                image[row, col, luminanceChannel] -= mask[row, col]
 
-            if image[row][column][0] + valueChange < 1:
-                image[row][column][0] += valueChange
-            else:
-                image[row][column][0] = 1
+    image = convertBack(image)
 
-            if image[row - 1][column - 1][0] - valueChange > 0:
-                image[row - 1][column - 1][0] -= valueChange
-            else:
-                image[row - 1][column - 1][0] = 0
+    image[image < -1] = -1
+    image[image > 1] = 1
 
-    return yuv2rgb(image)
+    image = img_as_ubyte(image)
+
+    return image
 
 
 def decodeImage(image, key):
-    image = rgb2yuv(image)
+    convert, _, luminanceChannel = _getColorFormatConversionAlgorithms()
+    image = convert(image)
+    mask = _getMaskOfDeltas(image, key)
 
+    expectedControlSum = 280 * _getLuminanceValueChange() * sqrt(_getNumberOfPixelPairsToChange(image))
+    controlSumOfModifiedImage = _calculateControlSum(image, luminanceChannel, mask)
+
+    certaintyTheImageIsEncoded = (100 * controlSumOfModifiedImage) / expectedControlSum
+    certaintyTheImageIsEncoded = max(min(100., certaintyTheImageIsEncoded), 0.)
+
+    print(f"There's {certaintyTheImageIsEncoded}% probability that the image is encoded using key: {key}")
+    return certaintyTheImageIsEncoded
+
+
+def _getMaskOfDeltas(image, key):
     rows = image.shape[0]
     columns = image.shape[1]
-    valueChange = _getLuminanceValueChange()
-    luminanceChangeSum = 0
 
-    rows_to_change, columns_to_change = _getPixelsBasedOnKey(rows, columns, key)
-    for row in rows_to_change:
-        for column in columns_to_change:
-            luminanceChangeSum += image[row][column][0] - image[row - 1][column - 1][0]
-    print(luminanceChangeSum, 2 * valueChange * len(rows_to_change))
+    mask = np.zeros(rows * columns, dtype=np.float)
+    n = _getNumberOfPixelPairsToChange(image)
 
+    mask[:n] = _getLuminanceValueChange()
+    mask[n:2 * n] = -1 * _getLuminanceValueChange()
 
-def _getPixelsBasedOnKey(rows, columns, key):
-    random.seed(key)
-    rows = _getIndexesToChange(rows)
-    columns = _getIndexesToChange(columns)
-    return rows, columns
+    np.random.seed(key)
+    np.random.shuffle(mask)
+
+    return mask.reshape((rows, columns))
 
 
-def _getIndexesToChange(size):
-    return random.sample(range(1, size - 1), int(size * _getPercentageOfPixelsToChange()))
+def _calculateControlSum(image, luminanceChannel, mask):
+    rows = mask.shape[0]
+    columns = mask.shape[1]
+
+    controlSum = 0
+    for row in range(rows):
+        for column in range(columns):
+            if mask[row, column] > 0:
+                controlSum += image[row, column, luminanceChannel]
+            elif mask[row, column] < 0:
+                controlSum -= image[row, column, luminanceChannel]
+    return controlSum
