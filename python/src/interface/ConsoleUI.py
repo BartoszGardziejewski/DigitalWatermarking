@@ -13,14 +13,9 @@ def startInterface():
         'D': _decodeImages,
     }
 
-    _encodeImages()
-    _decodeImages()
-    return
-
     while True:
-        # choice = input(f'Do you wish to Encode or Decode images? {[key for key in switch.keys()]}: ')
-        # func = switch.get(choice, None)
-        func = switch.get('D', None)
+        choice = input(f'Do you wish to Encode or Decode images? {[key for key in switch.keys()]}: ')
+        func = switch.get(choice, None)
         if func:
             func()
             break
@@ -32,9 +27,7 @@ def startInterface():
 
 def _encodeImages():
     images = _getImages()
-
     for image, file in zip(images, images.files):
-        # print('chosen encoding: ' + file)
         algorithm, kwargs = _getAlgorithmWithArguments(image, file)
         watermarkedImage = _watermarkImage(image, algorithm, kwargs)
         _saveImage(watermarkedImage, file.replace("\\", "/"))
@@ -44,22 +37,11 @@ def _encodeImages():
 def _decodeImages():
     images = _getImages(ImageManagement.resultsDirPath)
     for image, file in zip(images, images.files):
-        # print('chosen decoding: ' + file)
         algorithm, kwargs = _getAlgorithmWithArguments(image, file)
         result = _decodeImage(image, algorithm, kwargs)
-        pass
 
 
 def _getImages(exampleCollection=ImageManagement.resourcesDirPath):
-    # return ImageManagement.loadImages(exampleCollection + 'watermark.bmp', "")
-    # return ImageManagement.loadImages(exampleCollection + 'bright.png', "")
-    return ImageManagement.loadImages(exampleCollection + 'quantum.png', "")
-    # return ImageManagement.loadImages(exampleCollection + 'high_res.png', "")
-
-    # return ImageManagement.loadImages(ImageManagement.resourcesDirPath + 'watermark.bmp', "")
-    # return ImageManagement.loadImages(ImageManagement.resourcesDirPath + 'bright.png', "")
-    # return ImageManagement.loadImages(ImageManagement.resourcesDirPath + 'quantum.png', "")
-    # return ImageManagement.loadImages(ImageManagement.resourcesDirPath + 'high_res.png', "")
     while True:
         imagePath = input('Please specify image or directory with images (press Enter to use example collection): ')
         imagePath = exampleCollection + imagePath
@@ -87,11 +69,14 @@ def _selectImageToUseAsWaterMark(image, file):
 
 
 def _getPatchworkSecretKey(file):
-    return 1
     while True:
-        key = input(f'Please specify the secret key [int] used to watermark the {file}: ')
+        key = input(f'Please specify the secret key [0 .. 4,294,967,295] to watermark the {file} with: ')
         try:
             key = int(key)
+            if not 0 <= key <= 4294967295:
+                print(f'ERROR: Key {key} not in range [0 .. 4,294,967,295]. Please try again.')
+                continue
+            return key
         except ValueError as e:
             print(f'ERROR: {e}. Please try again.')
             continue
@@ -104,8 +89,7 @@ def _getAlgorithmWithArguments(image, file):
     }
 
     while True:
-        # choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
-        choice = 'PAT'
+        choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
         algorithmWithArguments = switch.get(choice, None)
 
         if algorithmWithArguments:

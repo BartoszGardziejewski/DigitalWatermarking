@@ -13,8 +13,6 @@ def _getLuminanceValueChange():
     return 0.005
 
 
-# W. Bender, D. Gruhl, N. Morimoto, A. Lu,
-# "Techniques for Data Hiding" IBM Systems Journal, Vol. 35 Nos 3&4, 1996
 def _getNumberOfPixelPairsToChange(image):
     rows = image.shape[0]
     columns = image.shape[1]
