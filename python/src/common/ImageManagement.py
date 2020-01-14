@@ -1,15 +1,8 @@
 from skimage import io
-from skimage import color
 
 resourcesDirPath = '../resources/'
 resultsDirName = 'results'
 resultsDirPath = f'../{resultsDirName}/'
-
-
-# Loads from resource folder
-def loadImageAndConvertToYUV(imagePath=resourcesDirPath + "python.bmp"):
-    image = io.imread(imagePath)
-    return color.rgb2yuv(image)
 
 
 # Loads from resources folder
@@ -17,9 +10,13 @@ def loadImage(imagePath=resourcesDirPath + "python.bmp"):
     return io.imread(imagePath)
 
 
-def loadImages(imagesPath=resourcesDirPath + "test", postfix="/*.bmp"):
+def loadImages(imagesPath=resourcesDirPath + "test", postfix="/*.*"):
     return io.ImageCollection(imagesPath + postfix)
 
 
 def saveImage(image, imagePath=resultsDirPath + "python.bmp"):
+    postfix = imagePath.split('.')[-1]
+    if any(p in postfix for p in ['jpg', 'jpeg']):
+        print(
+            f"WARNING: {postfix.capitalize()} format may be problematic due to format's compression / optimalization.")
     io.imsave(imagePath, image)
