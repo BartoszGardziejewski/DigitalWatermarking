@@ -1,11 +1,50 @@
-\documentclass{article}
+\documentclass[a4paper, 12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{enumitem}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage{polski}
 
+\title{Multimedia and Computer Visualization}
+\author{Rafał Grądkowski, Bartosz Gardziejewski, Paweł Zaborowski, Łukasz Obrębski}
+\date{15th January 2020}
 
 \begin{document}
+
+\begin{titlepage}
+    \makeatletter
+    \vspace{1cm}
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{PWr-logo_ang.png} \par
+        \vspace{0.2cm}
+        \Large Faculty Of Electronics \par
+        \vspace{1.25cm}
+        {    
+            \bfseries
+            Computer Science \\
+            \vspace{0.25cm}
+    	    \normalsize Internet Engineering \par
+    	    \vspace{2cm}
+    	    \Huge \@title \\
+    	}
+    	\vspace{0.5cm}
+        \large Digital Watermarking
+    \end{center}
+    \null
+    \vfill
+    \begin{flushright}
+        Authors: \\
+        Rafał Grądkowski \\
+        Bartosz Gardziejewski \\
+        Paweł Zaborowski \\
+        Łukasz Obrębski
+    \end{flushright}
+    \vspace{0.5cm}
+    \begin{flushleft}
+        Lecturer: dr inż. Marek Woda \break
+        Group: E05-17b \par
+    \end{flushleft}
+\end{titlepage}
 
 \newpage
 \title{Digital Watermarking}
@@ -18,17 +57,22 @@
 
 \section{Subject}
 
-The project's aim is to implement and compare 2 methods of the digital watermarking. Technologies chosen by us are: LSB and Patchwork.
-Analysis will be focused on main areas of watermarking which are: transformation, distortion, compression.. //todo: dopisac jakie jeszcze. 
+The project's aim is to implement and compare two digital watermarking methods when applied to images. Chosen technologies are Least Significant Bit [LSB] Technique and Patchwork Algorithm.
+Analysis will be focused on main areas of watermarking which are: transformation, distortion, compression...
+\\ \\
+//TODO: dopisac jakie jeszcze. 
 
-\section{State of art}
+\section{State of the art}
 
-Digital watermarking in general is a kind of marker embedded in a noise-tolerant signal. The most popular kinds of the signals which allow watermarking are images, videos, audio. Typically used for identifying ownership and mark copyrights. A digital watermark does not change the size of the carrier signal.
-Example of watermark.
-\includegraphics{ex.png}
-.
-.
-.
+Digital watermarking in general is a kind of marker embedded in a noise-tolerant signal. The most popular kinds of the signals which allow watermarking are images, videos and audio signals. Digital watermarking techniques are typically used for identifying ownership and mark copyrights. Most recognizable form of digital watermarking in images is a simple overlay of a text or logo image over the original image. An example of such watermark can be seen below:
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{ex.png} \par
+\end{center}
+
+However, in professional applications, digital watermarks should be perceptible under certain conditions only, e.g. after using some specific algorithm. If the carrier signal is distorted by a digital watermark in such a way that it becomes easily noticable or the size of the carrier signal is changed, it could be considered not effective (depending on its purpose. \par
+
+There are currently three types of digital watermarking methods:
 
 \begin{enumerate}
 	\item Spatial domain techniques - directly add the watermark to pixel values - exploit Human Visual System for hiding the data
@@ -36,33 +80,35 @@ Example of watermark.
 	\item Hybrid techniques
 \end{enumerate}
 
-\section{Project scope}
+\section{Project's scope}
 
-In the following subchapters, 
+A concise project's description was done in the following subchapters, consisting of informations about project's goal, requirements and implemented features.
 
-	\subsection{Goal}
-	The main goal of the project is to prepare simple application with both of the algorithms implemented. Our tasks were focused on proper algorithm implementation rather than on user interface. We were trying...
-	
-	\subsection{Communication}
-	Communication of team members took place remotely using Trello (an internet
-	application for project management) and Facebook Messenger (messenger on a social
-	networking site). After the division of tasks through Trello, each member could take on	a specific task and present the progress of the work and the final effects of the project stages on an ongoing basis. Important point of communication were team meetings, where we could discuss problems related to the project implementation and solve difficult tasks more efficient. The source code of the application has been managed remotely using the GitHub repository.
-	
-	\subsection{Features}
+\subsection{Goal of the project}
+The main goal of the project is to prepare simple application with both of the algorithms implemented. Our tasks were focused on proper algorithm implementation rather than on user interface. We were trying...
 
-	
-	\subsection{Requirements}
+\subsection{Requirements}
+
+\subsection{Features}
+
 \section{Techniques and Technologies}
 	
 	\begin{itemize}
-		\item Python 3.7
-		\item NumPy
-		\item scikit-image
-		\item algorithms: \begin{enumerate}
+		\item Python 3.7 with packages:
+		\begin{enumerate}
+            \item NumPy
+            \item scikit-image
+        \end{enumerate}
+		\item Algorithms: \begin{enumerate}
 			\item LSB – Least Significant Bit
 			\item Patchwork techniqe
 		\end{enumerate}
 	\end{itemize}
+	
+\subsection{Communication between team members}
+Communication of team members took place remotely using Trello (an internet
+application for project management) and Facebook Messenger (messenger on a social
+networking site). After the division of tasks through Trello, each member could take on	a specific task and present the progress of the work and the final effects of the project stages on an ongoing basis. Important point of communication were team meetings, where we could discuss problems related to the project implementation and solve difficult tasks more efficient. The source code of the application has been managed remotely using the GitHub repository.
 	
 \section{Milestone and project plan}
 
@@ -100,26 +146,31 @@ In the following subchapters,
 	\item 16.01.20 – Project closure (Final presentation, project demo, documentation)
 	\end{itemize}
 	
-	\subsection{}
 \section{Results}
 
 	\subsection{LSB}
 
-	    \subsection{implementation}
-    	In our program the LSB algorithm is going thru the image colour by colour and pixel by pixel and checks the most significant bit of the watermark pixel, if it is 1 then it sets 1 in lest significant bit of the pixel in image, if it is 0 then it is set to 0. If the water mark is smaller then image it is looped.
+	    \subsubsection{Implementation}
+    	In our program the LSB algorithm is going through the image colour by colour and pixel by pixel and checks the most significant bit of the watermark pixel, if it is 1 then it sets 1 in lest significant bit of the pixel in image, if it is 0 then it is set to 0. If the water mark is smaller then image it is looped.
 
-    	\subsection{testing}
+    	\subsubsection{Testing}
     	We performed test using our LSB algorithm on two pictures. The results was as follows.
     	Firs picture was python logo with resolution 225x225 it take approximately 1 second to watermark that image and the second was photo with resolution 393x206 it take approximately 1.5 second:
 
-    	\includegraphics[scale=3.0]{python_lsb/python_original.png}
-
-    	\includegraphics[scale=0.5]{photo_lsb/Photo_original.png}
-
+        \begin{center}
+            \includegraphics[scale=3.0]{python_lsb/python_original.png}
+        \end{center}
+        
+        \begin{center}
+            \includegraphics[scale=0.5]{photo_lsb/Photo_original.png}
+        \end{center}
+    	
         As watermark we used small python logo with resolution 64x64 and color inversion:
 
-    	\includegraphics[scale=1.5]{watermark.png}
-
+        \begin{center}
+            \includegraphics[scale=1.5]{watermark.png}
+        \end{center}
+    	
         Watermarked image and the water mark extracted from it looked as expected:
 
     	\includegraphics[scale=1.0]{python_lsb/watermarked_python.png}
@@ -127,8 +178,8 @@ In the following subchapters,
 
     	\includegraphics[scale=0.6]{photo_lsb/watermarked_photo.png}
     	\includegraphics[scale=0.6]{photo_lsb/watermark_photo.png}
-
-    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. first we try rotating image 45 degree:
+        
+    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. First we try rotating image by 45 degrees:
 
     	\includegraphics[scale=1.0]{python_lsb/watermark_python_rot45.png}
     	\includegraphics[scale=1.0]{python_lsb/watermark_watermark_python_rot45.png}
@@ -160,7 +211,13 @@ In the following subchapters,
 
     	They both almost completely destroyed watermark.
 
-	\subsection{2}
+	\subsection{Patchwork algorithm}
+	
+	\subsubsection{Implementation}
+	
+	
+	
+	\subsubsection{Testing}
 
 	Patchwork pros and cons
 
@@ -174,7 +231,7 @@ In the following subchapters,
 
 	\subsection{LSB}
 
-	LSB is fairly simple algorithm ant quite fast, unfortunately it is not very robust, simple transformation can make it "disappear", we can use for example not the least significant bit but middle one that should increase robust, although it makes watermark more visible:
+	LSB is fairly simple and quite fast algorithm, unfortunately it is not very robust - simple transformation can make it "disappear". We could use for example not the least significant bit but middle one that should increase robustness, although it makes watermark much more visible:
 
 
 	\includegraphics[scale=1.0]{python_lsb/watermarked_python_4bit.png}
