@@ -331,41 +331,103 @@ networking site). After the division of tasks through Trello, each member could 
 	
 	\subsubsection{Testing}
 
+    Patchwork algorithm should be resistant primarily to color changes. There are also implementations that can be resistant to cropping or more advanced tones adjustments but our implementation does not support that.
+    
+    Algorithm was tested on various images, two of which are presented below:
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/high_res/high_res.png} }}%
+        \qquad
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/quantum/quantum.png}}}%
+        \label{}
+    \end{figure}
+    
+    Both images were watermarked and subjected to distinct changes: brightness, contrast, color temperature and saturation increase. Key used to generate pixel pairs was: 12345. \\
+    
+    Original images:
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/high_res/high_res_brighter.png} }}%
+        \qquad
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/quantum/quantum_brighter.png}}}%
+        \label{}
+    \end{figure}
+    
+    Images with contrast increased:
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/high_res/high_res_contrast.png} }}%
+        \qquad
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/quantum/quantum_contrast.png}}}%
+        \label{}
+    \end{figure}
+    
+    Images with temperature increased:
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/high_res/high_res_temperature.png} }}%
+        \qquad
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/quantum/quantum_temperature.png}}}%
+        \label{}
+    \end{figure}
+    
+    Images with saturation:
+    
+    \begin{figure}[H]
+        \centering
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/high_res/high_res_saturated.png} }}%
+        \qquad
+        \subfloat[]{{\includegraphics[width=5cm]{photos_patchwork/quantum/quantum_saturated.png}}}%
+        \label{}
+    \end{figure}
 
-
+    Next, all images were tested against Patchwork algorithm. The algorithm calculates a chance that an image has been watermarked with given key. Test results are provided in the following table:
+    
+    \begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{|l|l|l|l|l|l|l|}
+    \hline
+    & \begin{tabular}[c]{@{}l@{}}Original without\\ watermark {[}\%{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}Original with\\ watermark {[}\%{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}With watermark\\ and brightness\\ increased {[}\%{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}With watermark\\ and contrast\\ increased {[}\%{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}With watermark\\ and temperature\\ increased {[}\%{]}\end{tabular} & \begin{tabular}[c]{@{}l@{}}With watermark\\ and saturation {[}\%{]}\end{tabular} \\ \hline
+    \begin{tabular}[c]{@{}l@{}}House at\\ the lake (left)\end{tabular} & 14 & 100 & 98 & 85 & 89 & 71 \\ \hline
+    \begin{tabular}[c]{@{}l@{}}Quantum\\ computer (right)\end{tabular} & 0 & 55 & 45 & 26 & 71 & 49 \\ \hline
+    \end{tabular}%
+    }
+    \label{}
+    \end{table}
+    
 \section{Conclusions}
 
 	\subsection{LSB}
 
 	LSB is fairly simple and quite fast algorithm, unfortunately it is not very robust - simple transformation can make it "disappear". We could use for example not the least significant bit but middle one that should increase robustness, although it makes watermark much more visible:
 
-
-
 	 \begin{center}
 		\includegraphics[scale=0.5]{python_lsb/watermarked_python_4bit.png}
 	\end{center}
 
-	LSB pros and cons:
+	LSB advatanges and disadvantages:
 	\begin{itemize}
-
 		\item Resistance to geometric transformations, like cropping, stretching or rotating, in condition that the operation is not using more sophisticated algorithm
 		\item High capacity of watermark
 		\item fast and easy to implement
 		\item Can be easily destroyed by distortions or gamma changes
-
-
-
-
 	\end{itemize}
 
 	\subsection{Patchwork}
 	
-	Patchwork pros and cons
+	Because Patchwork algorithm relies heavily on the assumption that control sum calculated for not watermarked image should be close to 0, algorithm is susceptible to unforseen errors, depending on the image used. \\
+	
+	Patchwork algorithm's advatanges and disadvantages:
 
 	\begin{itemize}
-		\item Resistance to cropping and to gamma and tone scale corrections
+		\item Resistance to gamma and tone scale corrections
 		\item The detector doesn’t require the original cover image to determine whether the image has been watermarked.
-		\item Can be destroyed by any affine transformation, like translation, rotation or scaling
+		\item Can be destroyed by any affine transformation, like translation, rotation, scaling or cropping
 	\end{itemize}
 
 \end{document}
