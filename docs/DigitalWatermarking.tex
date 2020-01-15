@@ -61,9 +61,8 @@
 \section{Subject}
 
 The project's aim is to implement and compare two digital watermarking methods when applied to images. Chosen technologies are Least Significant Bit [LSB] Technique and Patchwork Algorithm.
-Analysis will be focused on main areas of watermarking which are: transformation, distortion, compression...
-\\ \\
-//TODO: dopisac jakie jeszcze. 
+Analysis will be focused on main areas of watermarking which are among others: transformation, distortion, compression.
+
 
 \section{State of the art}
 
@@ -75,6 +74,7 @@ Digital watermarking in general is a kind of marker embedded in a noise-tolerant
 
 However, in professional applications, digital watermarks should be perceptible under certain conditions only, e.g. after using some specific algorithm. If the carrier signal is distorted by a digital watermark in such a way that it becomes easily noticable or the size of the carrier signal is changed, it could be considered not effective (depending on its purpose. \par
 
+\newpage
 There are currently three types of digital watermarking methods:
 
 \begin{enumerate}
@@ -94,6 +94,7 @@ The main goal of the project is to prepare simple application with both of the a
 
 The user need to have possibility to encode their picture by watermark, optionally, chosen by them. The user need to have possibility to choose which algorithm they would like to use.
 
+\newpage
 \subsection{Features}
 
 Application is Command Line Interface based. Firstly it allows user to choose between encoding picture, or with usage of patchwork, decoding, shown on the figure a). After picking encoding we have two algorithms to choose (figure b)).
@@ -132,7 +133,7 @@ Application is Command Line Interface based. Firstly it allows user to choose be
 	\end{center}
 	
 	
-
+\newpage
 \section{Techniques and Technologies}
 	
 	\subsection{Tools}
@@ -217,7 +218,8 @@ networking site). After the division of tasks through Trello, each member could 
             \includegraphics[scale=1.5]{watermark.png}
         \end{center}
     	
-        Watermarked image and the water mark extracted from it looked as expected as on figure: %\autoref{fig:python_logo}:
+   	\newpage
+        Watermarked image and the water mark extracted from it looked as expected, as on figure: %\autoref{fig:python_logo}:
         
         \begin{figure}[!h]%
         	\centering
@@ -235,9 +237,9 @@ networking site). After the division of tasks through Trello, each member could 
 			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermark_photo.png}}}%
 			\label{fig:python_logo2}%
 		\end{figure}
-
+	\newpage
         
-    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. First we try rotating image by 45 degrees, figure %\autoref{fig:45}:
+    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. First we try rotating image by 45 degrees %\autoref{fig:45}:
 
         \begin{figure}[h]%
 			\centering
@@ -278,7 +280,7 @@ networking site). After the division of tasks through Trello, each member could 
 			\label{}%
 		\end{figure}
 
-
+\newpage
     	It Turns out that even slightly changed contrast makes watermark almost unreadable. Last transformation was more advanced one, performed on \textit{photo}.
 
     	Noise reduction:
@@ -345,6 +347,7 @@ networking site). After the division of tasks through Trello, each member could 
     
     Both images were watermarked and subjected to distinct changes: brightness, contrast, color temperature and saturation increase. Key used to generate pixel pairs was: 12345. \\
     
+    \newpage
     Original images:
     
     \begin{figure}[H]
@@ -375,6 +378,7 @@ networking site). After the division of tasks through Trello, each member could 
         \label{}
     \end{figure}
     
+    \newpage
     Images with saturation:
     
     \begin{figure}[H]
@@ -410,6 +414,7 @@ networking site). After the division of tasks through Trello, each member could 
 		\includegraphics[scale=0.5]{python_lsb/watermarked_python_4bit.png}
 	\end{center}
 
+\newpage
 	LSB advatanges and disadvantages:
 	\begin{itemize}
 		\item Resistance to geometric transformations, like cropping, stretching or rotating, in condition that the operation is not using more sophisticated algorithm

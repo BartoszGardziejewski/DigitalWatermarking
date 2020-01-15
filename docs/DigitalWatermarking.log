@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.1)  15 JAN 2020 20:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2019.3.1)  16 JAN 2020 00:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -579,7 +579,116 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip49
 )
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+Package: mathtools 2018/01/08 v1.21 mathematical typesetting tools
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count107
+\calc@Bcount=\count108
+\calc@Adimen=\dimen118
+\calc@Bdimen=\dimen119
+\calc@Askip=\skip50
+\calc@Bskip=\skip51
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count109
+\calc@Cskip=\skip52
+)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty
+Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip53
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen120
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen121
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count110
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count111
+\leftroot@=\count112
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count113
+\DOTSCASE@=\count114
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen122
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count115
+\c@MaxMatrixCols=\count116
+\dotsspace@=\muskip11
+\c@parentequation=\count117
+\dspbrk@lvl=\count118
+\tag@help=\toks22
+\row@=\count119
+\column@=\count120
+\maxfields@=\count121
+\andhelp@=\toks23
+\eqnshift@=\dimen123
+\alignsep@=\dimen124
+\tagshift@=\dimen125
+\tagwidth@=\dimen126
+\totwidth@=\dimen127
+\lineht@=\dimen128
+\@envbody=\toks24
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
+\g_MT_multlinerow_int=\count122
+\l_MT_multwidth_dim=\dimen129
+\origjot=\skip56
+\l_MT_shortvdotswithinadjustabove_dim=\dimen130
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen131
+\l_MT_above_intertext_sep=\dimen132
+\l_MT_below_intertext_sep=\dimen133
+\l_MT_above_shortintertext_sep=\dimen134
+\l_MT_below_shortintertext_sep=\dimen135
+)
 (./DigitalWatermarking.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
 
 LaTeX Warning: Label `' multiply defined.
 
@@ -601,35 +710,35 @@ LaTeX Warning: Label `' multiply defined.
 )
 \openout1 = `DigitalWatermarking.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen118
-\scratchbox=\box29
-\nofMPsegments=\count108
-\nofMParguments=\count109
-\everyMPshowfont=\toks21
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen119
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
-\everyMPtoPDFconversion=\toks22
+\scratchcounter=\count123
+\scratchdimen=\dimen136
+\scratchbox=\box31
+\nofMPsegments=\count124
+\nofMParguments=\count125
+\everyMPshowfont=\toks26
+\MPscratchCnt=\count126
+\MPscratchDim=\dimen137
+\MPnumerator=\count127
+\makeMPintoPDFobject=\count128
+\everyMPtoPDFconversion=\toks27
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -651,8 +760,8 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box30
-Package hyperref Info: Link coloring OFF on input line 14.
+\AtBeginShipoutBox=\box32
+Package hyperref Info: Link coloring OFF on input line 15.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -660,20 +769,20 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count113
+\c@section@level=\count129
 )
-LaTeX Info: Redefining \ref on input line 14.
-LaTeX Info: Redefining \pageref on input line 14.
-LaTeX Info: Redefining \nameref on input line 14.
+LaTeX Info: Redefining \ref on input line 15.
+LaTeX Info: Redefining \pageref on input line 15.
+LaTeX Info: Redefining \nameref on input line 15.
 
 (./DigitalWatermarking.out) (./DigitalWatermarking.out)
 \@outlinefile=\write3
 \openout3 = `DigitalWatermarking.out'.
 
-<PWr-logo_ang.png, id=100, 506.8536pt x 108.405pt>
+<PWr-logo_ang.png, id=104, 506.8536pt x 108.405pt>
 File: PWr-logo_ang.png Graphic file (type png)
 <use PWr-logo_ang.png>
-Package pdftex.def Info: PWr-logo_ang.png  used on input line 20.
+Package pdftex.def Info: PWr-logo_ang.png  used on input line 21.
 (pdftex.def)             Requested size: 292.5pt x 62.55899pt.
  [1
 
@@ -707,357 +816,442 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \newpage
+l.59 \newpage
               [1]
-Underfull \hbox (badness 10000) in paragraph at lines 62--66
-
- []
-
-<ex.png, id=139, 673.51625pt x 407.5225pt>
+<ex.png, id=144, 673.51625pt x 407.5225pt>
 File: ex.png Graphic file (type png)
 <use ex.png>
 Package pdftex.def Info: ex.png  used on input line 72.
 (pdftex.def)             Requested size: 390.0pt x 235.97768pt.
-[2 <./ex.png>]
-<ui_intro.png, id=144, 432.61626pt x 84.315pt>
+ [2 <./ex.png>] [3]
+<ui_intro.png, id=156, 432.61626pt x 84.315pt>
 File: ui_intro.png Graphic file (type png)
 <use ui_intro.png>
-Package pdftex.def Info: ui_intro.png  used on input line 102.
+Package pdftex.def Info: ui_intro.png  used on input line 104.
 (pdftex.def)             Requested size: 142.26378pt x 27.72624pt.
-<ui_alg_choose.png, id=145, 722.7pt x 72.27pt>
+<ui_alg_choose.png, id=157, 722.7pt x 72.27pt>
 File: ui_alg_choose.png Graphic file (type png)
 <use ui_alg_choose.png>
-Package pdftex.def Info: ui_alg_choose.png  used on input line 104.
+Package pdftex.def Info: ui_alg_choose.png  used on input line 106.
 (pdftex.def)             Requested size: 142.26378pt x 14.22656pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 113.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 111.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
- [3]
-<ui_lsb.png, id=153, 850.17625pt x 65.24374pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
+<ui_lsb.png, id=158, 850.17625pt x 65.24374pt>
 File: ui_lsb.png Graphic file (type png)
 <use ui_lsb.png>
-Package pdftex.def Info: ui_lsb.png  used on input line 115.
-(pdftex.def)             Requested size: 425.08708pt x 32.62178pt.
+Package pdftex.def Info: ui_lsb.png  used on input line 117.
+(pdftex.def)             Requested size: 390.0pt x 29.92885pt.
 
-Overfull \hbox (64.46178pt too wide) in paragraph at lines 115--116
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 117--118
  [] 
  []
 
-<ui_pw_choose.png, id=154, 839.135pt x 56.21pt>
+<ui_pw_choose.png, id=159, 839.135pt x 56.21pt>
 File: ui_pw_choose.png Graphic file (type png)
 <use ui_pw_choose.png>
-Package pdftex.def Info: ui_pw_choose.png  used on input line 122.
-(pdftex.def)             Requested size: 419.56647pt x 28.10492pt.
+Package pdftex.def Info: ui_pw_choose.png  used on input line 124.
+(pdftex.def)             Requested size: 390.0pt x 26.1245pt.
 
-Overfull \hbox (58.94116pt too wide) in paragraph at lines 122--123
+Overfull \hbox (29.3747pt too wide) in paragraph at lines 124--125
  [] 
  []
 
-<ui-pw-decode.png, id=155, 807.015pt x 44.165pt>
+<ui-pw-decode.png, id=160, 807.015pt x 44.165pt>
 File: ui-pw-decode.png Graphic file (type png)
 <use ui-pw-decode.png>
-Package pdftex.def Info: ui-pw-decode.png  used on input line 130.
-(pdftex.def)             Requested size: 403.50652pt x 22.08243pt.
-
-Overfull \hbox (13.50652pt too wide) in paragraph at lines 130--131
- [] 
- []
-
+Package pdftex.def Info: ui-pw-decode.png  used on input line 132.
+(pdftex.def)             Requested size: 390.0pt x 21.34315pt.
 [4 <./ui_intro.png> <./ui_alg_choose.png> <./ui_lsb.png> <./ui_pw_choose.png> <
 ./ui-pw-decode.png>] [5]pdfTeX warning (ext4): destination with the same identi
 fier (name{subfigure.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.205 		\subfloat
+l.207 		\subfloat
                  []{{\includegraphics[width=5cm]{python_lsb/python_original....
-<python_lsb/python_original.png, id=182, 54.2025pt x 54.2025pt>
+<python_lsb/python_original.png, id=184, 54.2025pt x 54.2025pt>
 File: python_lsb/python_original.png Graphic file (type png)
 <use python_lsb/python_original.png>
-Package pdftex.def Info: python_lsb/python_original.png  used on input line 205
+Package pdftex.def Info: python_lsb/python_original.png  used on input line 207
 .
 (pdftex.def)             Requested size: 142.26378pt x 142.3027pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.207 		\subfloat
+l.209 		\subfloat
                  []{{\includegraphics[width=5cm]{photo_lsb/Photo_original.pn...
-<photo_lsb/Photo_original.png, id=183, 394.47375pt x 206.7725pt>
+<photo_lsb/Photo_original.png, id=185, 394.47375pt x 206.7725pt>
 File: photo_lsb/Photo_original.png Graphic file (type png)
 <use photo_lsb/Photo_original.png>
-Package pdftex.def Info: photo_lsb/Photo_original.png  used on input line 207.
+Package pdftex.def Info: photo_lsb/Photo_original.png  used on input line 209.
 (pdftex.def)             Requested size: 142.26378pt x 74.57054pt.
-<watermark.png, id=184, 48.18pt x 48.18pt>
+[6]
+<watermark.png, id=194, 48.18pt x 48.18pt>
 File: watermark.png Graphic file (type png)
 <use watermark.png>
-Package pdftex.def Info: watermark.png  used on input line 216.
+Package pdftex.def Info: watermark.png  used on input line 218.
 (pdftex.def)             Requested size: 72.26978pt x 72.26978pt.
-[6 <./python_lsb/python_original.png> <./photo_lsb/Photo_original.png>]pdfTeX w
-arning (ext4): destination with the same identifier (name{subfigure.1.1}) has b
-een already used, duplicate ignored
+ [7 <./python_lsb/python_original.png> <./photo_lsb/Photo_original.png> <./wate
+rmark.png>]pdfTeX warning (ext4): destination with the same identifier (name{su
+bfigure.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.223         	\subfloat
+l.226         	\subfloat
                         []{{\includegraphics[width=5cm]{python_lsb/watermark...
-<python_lsb/watermarked_python.png, id=193, 169.38281pt x 169.38281pt>
+<python_lsb/watermarked_python.png, id=202, 169.38281pt x 169.38281pt>
 File: python_lsb/watermarked_python.png Graphic file (type png)
 <use python_lsb/watermarked_python.png>
 Package pdftex.def Info: python_lsb/watermarked_python.png  used on input line 
-223.
+226.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.225         	\subfloat
+l.228         	\subfloat
                         []{{\includegraphics[width=5cm]{python_lsb/watermark...
-<python_lsb/watermark_photo.png, id=194, 169.38281pt x 169.38281pt>
+<python_lsb/watermark_photo.png, id=203, 169.38281pt x 169.38281pt>
 File: python_lsb/watermark_photo.png Graphic file (type png)
 <use python_lsb/watermark_photo.png>
-Package pdftex.def Info: python_lsb/watermark_photo.png  used on input line 225
+Package pdftex.def Info: python_lsb/watermark_photo.png  used on input line 228
 .
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.232 			\subfloat
+l.235 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermarked_phot...
-<photo_lsb/watermarked_photo.png, id=195, 295.85532pt x 155.07938pt>
+<photo_lsb/watermarked_photo.png, id=204, 295.85532pt x 155.07938pt>
 File: photo_lsb/watermarked_photo.png Graphic file (type png)
 <use photo_lsb/watermarked_photo.png>
 Package pdftex.def Info: photo_lsb/watermarked_photo.png  used on input line 23
-2.
+5.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.234 			\subfloat
+l.237 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermark_photo....
-<photo_lsb/watermark_photo.png, id=196, 295.85532pt x 155.07938pt>
+<photo_lsb/watermark_photo.png, id=205, 295.85532pt x 155.07938pt>
 File: photo_lsb/watermark_photo.png Graphic file (type png)
 <use photo_lsb/watermark_photo.png>
-Package pdftex.def Info: photo_lsb/watermark_photo.png  used on input line 234.
+Package pdftex.def Info: photo_lsb/watermark_photo.png  used on input line 237.
 
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
-pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
-}) has been already used, duplicate ignored
+[8 <./python_lsb/watermarked_python.png> <./python_lsb/watermark_photo.png> <./
+photo_lsb/watermarked_photo.png> <./photo_lsb/watermark_photo.png>]pdfTeX warni
+ng (ext4): destination with the same identifier (name{subfigure.1.1}) has been 
+already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.243 			\subfloat
+l.246 			\subfloat
                   []{{\includegraphics[width=5cm]{python_lsb/watermark_pytho...
-<python_lsb/watermark_python_rot45.png, id=197, 169.38281pt x 169.38281pt>
+<python_lsb/watermark_python_rot45.png, id=212, 169.38281pt x 169.38281pt>
 File: python_lsb/watermark_python_rot45.png Graphic file (type png)
 <use python_lsb/watermark_python_rot45.png>
 Package pdftex.def Info: python_lsb/watermark_python_rot45.png  used on input l
-ine 243.
+ine 246.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.245 			\subfloat
+l.248 			\subfloat
                   []{{\includegraphics[width=5cm]{python_lsb/watermark_water...
-<python_lsb/watermark_watermark_python_rot45.png, id=198, 169.38281pt x 169.382
+<python_lsb/watermark_watermark_python_rot45.png, id=213, 169.38281pt x 169.382
 81pt>
 File: python_lsb/watermark_watermark_python_rot45.png Graphic file (type png)
 <use python_lsb/watermark_watermark_python_rot45.png>
 Package pdftex.def Info: python_lsb/watermark_watermark_python_rot45.png  used 
-on input line 245.
+on input line 248.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.251 			\subfloat
+l.254 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermarked_phot...
-<photo_lsb/watermarked_photo_rot45.png, id=199, 295.85532pt x 155.07938pt>
+<photo_lsb/watermarked_photo_rot45.png, id=214, 295.85532pt x 155.07938pt>
 File: photo_lsb/watermarked_photo_rot45.png Graphic file (type png)
 <use photo_lsb/watermarked_photo_rot45.png>
 Package pdftex.def Info: photo_lsb/watermarked_photo_rot45.png  used on input l
-ine 251.
+ine 254.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.253 			\subfloat
+l.256 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermark_waterm...
-<photo_lsb/watermark_watermarked_photo_rot45.png, id=200, 295.85532pt x 155.079
+<photo_lsb/watermark_watermarked_photo_rot45.png, id=215, 295.85532pt x 155.079
 38pt>
 File: photo_lsb/watermark_watermarked_photo_rot45.png Graphic file (type png)
 <use photo_lsb/watermark_watermarked_photo_rot45.png>
 Package pdftex.def Info: photo_lsb/watermark_watermarked_photo_rot45.png  used 
-on input line 253.
+on input line 256.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7 <./watermark.png> <./python_lsb/watermarked_python.png> <./python_lsb/waterm
-ark_photo.png> <./photo_lsb/watermarked_photo.png> <./photo_lsb/watermark_photo
-.png>]pdfTeX warning (ext4): destination with the same identifier (name{subfigu
-re.1.1}) has been already used, duplicate ignored
+[9 <./python_lsb/watermark_python_rot45.png> <./python_lsb/watermark_watermark_
+python_rot45.png> <./photo_lsb/watermarked_photo_rot45.png> <./photo_lsb/waterm
+ark_watermarked_photo_rot45.png>]pdfTeX warning (ext4): destination with the sa
+me identifier (name{subfigure.1.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.263     		\subfloat
+l.266     		\subfloat
                      []{{\includegraphics[width=5cm]{python_lsb/watermark_py...
-<python_lsb/watermark_python_invert.png, id=207, 169.38281pt x 169.38281pt>
+<python_lsb/watermark_python_invert.png, id=223, 169.38281pt x 169.38281pt>
 File: python_lsb/watermark_python_invert.png Graphic file (type png)
 <use python_lsb/watermark_python_invert.png>
 Package pdftex.def Info: python_lsb/watermark_python_invert.png  used on input 
-line 263.
+line 266.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.265     		\subfloat
+l.268     		\subfloat
                      []{{\includegraphics[width=5cm]{python_lsb/watermark_wa...
-<python_lsb/watermark_watermark_python_inver.png, id=208, 169.38281pt x 169.382
+<python_lsb/watermark_watermark_python_inver.png, id=224, 169.38281pt x 169.382
 81pt>
 File: python_lsb/watermark_watermark_python_inver.png Graphic file (type png)
 <use python_lsb/watermark_watermark_python_inver.png>
 Package pdftex.def Info: python_lsb/watermark_watermark_python_inver.png  used 
-on input line 265.
+on input line 268.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.274 			\subfloat
+l.277 			\subfloat
                   []{{\includegraphics[width=5cm]{python_lsb/watermark_pytho...
-<python_lsb/watermark_python_colMod.png, id=209, 169.38281pt x 169.38281pt>
+<python_lsb/watermark_python_colMod.png, id=225, 169.38281pt x 169.38281pt>
 File: python_lsb/watermark_python_colMod.png Graphic file (type png)
 <use python_lsb/watermark_python_colMod.png>
 Package pdftex.def Info: python_lsb/watermark_python_colMod.png  used on input 
-line 274.
+line 277.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.276 			\subfloat
+l.279 			\subfloat
                   []{{\includegraphics[width=5cm]{python_lsb/watermark_water...
-<python_lsb/watermark_watermark_python_colMod.png, id=210, 169.38281pt x 169.38
+<python_lsb/watermark_watermark_python_colMod.png, id=226, 169.38281pt x 169.38
 281pt>
 File: python_lsb/watermark_watermark_python_colMod.png Graphic file (type png)
 <use python_lsb/watermark_watermark_python_colMod.png>
 Package pdftex.def Info: python_lsb/watermark_watermark_python_colMod.png  used
- on input line 276.
+ on input line 279.
 (pdftex.def)             Requested size: 142.26378pt x 142.26765pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[8 <./python_lsb/watermark_python_rot45.png> <./python_lsb/watermark_watermark_
-python_rot45.png> <./photo_lsb/watermarked_photo_rot45.png> <./photo_lsb/waterm
-ark_watermarked_photo_rot45.png> <./python_lsb/watermark_python_invert.png> <./
-python_lsb/watermark_watermark_python_inver.png>]pdfTeX warning (ext4): destina
-tion with the same identifier (name{subfigure.1.1}) has been already used, dupl
-icate ignored
+[10 <./python_lsb/watermark_python_invert.png> <./python_lsb/watermark_watermar
+k_python_inver.png> <./python_lsb/watermark_python_colMod.png> <./python_lsb/wa
+termark_watermark_python_colMod.png>]pdfTeX warning (ext4): destination with th
+e same identifier (name{subfigure.1.1}) has been already used, duplicate ignore
+d
 <to be read again> 
                    \relax 
-l.287 			\subfloat
+l.290 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermarked_phot...
-<photo_lsb/watermarked_photo_reduction.png, id=220, 295.85532pt x 155.07938pt>
+<photo_lsb/watermarked_photo_reduction.png, id=234, 295.85532pt x 155.07938pt>
 File: photo_lsb/watermarked_photo_reduction.png Graphic file (type png)
 <use photo_lsb/watermarked_photo_reduction.png>
 Package pdftex.def Info: photo_lsb/watermarked_photo_reduction.png  used on inp
-ut line 287.
+ut line 290.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.289 			\subfloat
+l.292 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermark_waterm...
-<photo_lsb/watermark_watermarked_photo_reduction.png, id=221, 295.85532pt x 155
+<photo_lsb/watermark_watermarked_photo_reduction.png, id=235, 295.85532pt x 155
 .07938pt>
 File: photo_lsb/watermark_watermarked_photo_reduction.png Graphic file (type pn
 g)
 <use photo_lsb/watermark_watermarked_photo_reduction.png>
 Package pdftex.def Info: photo_lsb/watermark_watermarked_photo_reduction.png  u
-sed on input line 289.
+sed on input line 292.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.297 			\subfloat
+l.300 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermarked_phot...
-<photo_lsb/watermarked_photo_gaus.png, id=222, 295.85532pt x 155.07938pt>
+<photo_lsb/watermarked_photo_gaus.png, id=236, 295.85532pt x 155.07938pt>
 File: photo_lsb/watermarked_photo_gaus.png Graphic file (type png)
 <use photo_lsb/watermarked_photo_gaus.png>
 Package pdftex.def Info: photo_lsb/watermarked_photo_gaus.png  used on input li
-ne 297.
+ne 300.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
 pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.299 			\subfloat
+l.302 			\subfloat
                   []{{\includegraphics[width=5cm]{photo_lsb/watermark_waterm...
-<photo_lsb/watermark_watermarked_photo_gaus.png, id=223, 295.85532pt x 155.0793
+<photo_lsb/watermark_watermarked_photo_gaus.png, id=237, 295.85532pt x 155.0793
 8pt>
 File: photo_lsb/watermark_watermarked_photo_gaus.png Graphic file (type png)
 <use photo_lsb/watermark_watermarked_photo_gaus.png>
 Package pdftex.def Info: photo_lsb/watermark_watermarked_photo_gaus.png  used o
-n input line 299.
+n input line 302.
 (pdftex.def)             Requested size: 142.26378pt x 74.57211pt.
-[9 <./python_lsb/watermark_python_colMod.png> <./python_lsb/watermark_watermark
-_python_colMod.png> <./photo_lsb/watermarked_photo_reduction.png> <./photo_lsb/
-watermark_watermarked_photo_reduction.png> <./photo_lsb/watermarked_photo_gaus.
-png> <./photo_lsb/watermark_watermarked_photo_gaus.png>]
-<python_lsb/watermarked_python_4bit.png, id=231, 169.38281pt x 169.38281pt>
+[11 <./photo_lsb/watermarked_photo_reduction.png> <./photo_lsb/watermark_waterm
+arked_photo_reduction.png> <./photo_lsb/watermarked_photo_gaus.png> <./photo_ls
+b/watermark_watermarked_photo_gaus.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 328--329
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.342         \subfloat
+                       []{{\includegraphics[width=5cm]{photos_patchwork/high...
+<photos_patchwork/high_res/high_res.png, id=245, 2569.6pt x 1606.0pt>
+File: photos_patchwork/high_res/high_res.png Graphic file (type png)
+<use photos_patchwork/high_res/high_res.png>
+Package pdftex.def Info: photos_patchwork/high_res/high_res.png  used on input 
+line 342.
+(pdftex.def)             Requested size: 142.26378pt x 88.90614pt.
+pdfTeX warning (ext4): destination with the same identifier (name{subfigure.1.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.344         \subfloat
+                       []{{\includegraphics[width=5cm]{photos_patchwork/quan...
+<photos_patchwork/quantum/quantum.png, id=246, 1204.5pt x 803.0pt>
+File: photos_patchwork/quantum/quantum.png Graphic file (type png)
+<use photos_patchwork/quantum/quantum.png>
+Package pdftex.def Info: photos_patchwork/quantum/quantum.png  used on input li
+ne 344.
+(pdftex.def)             Requested size: 142.26378pt x 94.83649pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 348--349
+
+ []
+
+[12 <./photos_patchwork/high_res/high_res.png (PNG copy)> <./photos_patchwork/q
+uantum/quantum.png (PNG copy)>]
+<photos_patchwork/high_res/high_res_brighter.png, id=258, 616.704pt x 385.44pt>
+
+File: photos_patchwork/high_res/high_res_brighter.png Graphic file (type png)
+<use photos_patchwork/high_res/high_res_brighter.png>
+Package pdftex.def Info: photos_patchwork/high_res/high_res_brighter.png  used 
+on input line 355.
+(pdftex.def)             Requested size: 142.26378pt x 88.91399pt.
+<photos_patchwork/quantum/quantum_brighter.png, id=259, 289.08pt x 192.72pt>
+File: photos_patchwork/quantum/quantum_brighter.png Graphic file (type png)
+<use photos_patchwork/quantum/quantum_brighter.png>
+Package pdftex.def Info: photos_patchwork/quantum/quantum_brighter.png  used on
+ input line 357.
+(pdftex.def)             Requested size: 142.26378pt x 94.84236pt.
+<photos_patchwork/high_res/high_res_contrast.png, id=260, 616.704pt x 385.44pt>
+
+File: photos_patchwork/high_res/high_res_contrast.png Graphic file (type png)
+<use photos_patchwork/high_res/high_res_contrast.png>
+Package pdftex.def Info: photos_patchwork/high_res/high_res_contrast.png  used 
+on input line 365.
+(pdftex.def)             Requested size: 142.26378pt x 88.91399pt.
+<photos_patchwork/quantum/quantum_contrast.png, id=261, 289.08pt x 192.72pt>
+File: photos_patchwork/quantum/quantum_contrast.png Graphic file (type png)
+<use photos_patchwork/quantum/quantum_contrast.png>
+Package pdftex.def Info: photos_patchwork/quantum/quantum_contrast.png  used on
+ input line 367.
+(pdftex.def)             Requested size: 142.26378pt x 94.84236pt.
+<photos_patchwork/high_res/high_res_temperature.png, id=262, 616.704pt x 385.44
+pt>
+File: photos_patchwork/high_res/high_res_temperature.png Graphic file (type png
+)
+<use photos_patchwork/high_res/high_res_temperature.png>
+Package pdftex.def Info: photos_patchwork/high_res/high_res_temperature.png  us
+ed on input line 375.
+(pdftex.def)             Requested size: 142.26378pt x 88.91399pt.
+<photos_patchwork/quantum/quantum_temperature.png, id=263, 289.08pt x 192.72pt>
+
+File: photos_patchwork/quantum/quantum_temperature.png Graphic file (type png)
+<use photos_patchwork/quantum/quantum_temperature.png>
+Package pdftex.def Info: photos_patchwork/quantum/quantum_temperature.png  used
+ on input line 377.
+(pdftex.def)             Requested size: 142.26378pt x 94.84236pt.
+ [13 <./photos_patchwork/high_res/high_res_brighter.png> <./photos_patchwork/qu
+antum/quantum_brighter.png> <./photos_patchwork/high_res/high_res_contrast.png>
+ <./photos_patchwork/quantum/quantum_contrast.png> <./photos_patchwork/high_res
+/high_res_temperature.png> <./photos_patchwork/quantum/quantum_temperature.png>
+]
+<photos_patchwork/high_res/high_res_saturated.png, id=277, 616.704pt x 385.44pt
+>
+File: photos_patchwork/high_res/high_res_saturated.png Graphic file (type png)
+<use photos_patchwork/high_res/high_res_saturated.png>
+Package pdftex.def Info: photos_patchwork/high_res/high_res_saturated.png  used
+ on input line 386.
+(pdftex.def)             Requested size: 142.26378pt x 88.91399pt.
+<photos_patchwork/quantum/quantum_saturated.png, id=278, 289.08pt x 192.72pt>
+File: photos_patchwork/quantum/quantum_saturated.png Graphic file (type png)
+<use photos_patchwork/quantum/quantum_saturated.png>
+Package pdftex.def Info: photos_patchwork/quantum/quantum_saturated.png  used o
+n input line 388.
+(pdftex.def)             Requested size: 142.26378pt x 94.84236pt.
+<python_lsb/watermarked_python_4bit.png, id=279, 169.38281pt x 169.38281pt>
 File: python_lsb/watermarked_python_4bit.png Graphic file (type png)
 <use python_lsb/watermarked_python_4bit.png>
 Package pdftex.def Info: python_lsb/watermarked_python_4bit.png  used on input 
-line 331.
+line 414.
 (pdftex.def)             Requested size: 84.6912pt x 84.6912pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 349.
- [10 <./python_lsb/watermarked_python_4bit.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 349.
+ [14 <./photos_patchwork/high_res/high_res_saturated.png> <./photos_patchwork/q
+uantum/quantum_saturated.png> <./python_lsb/watermarked_python_4bit.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 428--429
+
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 438.
+[15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 438.
  (./DigitalWatermarking.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 349.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 349.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 438.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 438.
 Package rerunfilecheck Info: File `DigitalWatermarking.out' has not changed.
-(rerunfilecheck)             Checksum: F7BD955AEE13AF00EF748721065D629F;1458.
+(rerunfilecheck)             Checksum: 755ED56D09235F4E46F6584B2779F25E;1517.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 349.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 438.
  ) 
 Here is how much of TeX's memory you used:
- 7286 strings out of 494888
- 112741 string characters out of 6179867
- 190224 words of memory out of 5000000
- 10449 multiletter control sequences out of 15000+600000
+ 8497 strings out of 494888
+ 131709 string characters out of 6179867
+ 214084 words of memory out of 5000000
+ 11600 multiletter control sequences out of 15000+600000
  11925 words of font info for 34 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 44i,9n,49p,487b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc}{/usr/share/texliv
-e/texmf-dist/fonts/enc/dvips/pl/plrm.enc}</usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr10.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/pl/plr17.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/pl/plti12.pfb>
-Output written on DigitalWatermarking.pdf (11 pages, 1042931 bytes).
+ 44i,14n,49p,563b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texliv
+e/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/e
+nc/dvips/pl/plme.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc
+}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plit.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/pl/plbx12.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pl
+mi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/pl/plr10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/pl/plr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/pl
+r8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/pl/plti12.pfb>
+Output written on DigitalWatermarking.pdf (16 pages, 35529210 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
- 58 named destinations out of 1000 (max. 500000)
- 328 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 276 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
+ 386 words of extra memory for PDF output out of 10000 (max. 10000000)
 
