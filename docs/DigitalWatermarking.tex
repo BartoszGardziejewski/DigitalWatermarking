@@ -4,6 +4,8 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{polski}
+\usepackage{subfig}
+\usepackage{hyperref}
 
 \title{Multimedia and Computer Visualization}
 \author{Rafał Grądkowski, Bartosz Gardziejewski, Paweł Zaborowski, Łukasz Obrębski}
@@ -82,16 +84,57 @@ There are currently three types of digital watermarking methods:
 
 \section{Project's scope}
 
-A concise project's description was done in the following subchapters, consisting of informations about project's goal, requirements and implemented features.
+A concise project's description was done in the following subchapters, consisting of information about project's goal, requirements and implemented features.
 
 \subsection{Goal of the project}
-The main goal of the project is to prepare simple application with both of the algorithms implemented. Our tasks were focused on proper algorithm implementation rather than on user interface. We were trying...
+The main goal of the project is to prepare simple application with both of the algorithms implemented. Our tasks were focused on proper algorithm implementation rather than on user interface. We were trying to implement both algorithms properly and to compare parameters between them. Also our aim was to compare how do they work in practice.
 
 \subsection{Requirements}
 
+The user need to have possibility to encode their picture by watermark, optionally, chosen by them. The user need to have possibility to choose which algorithm they would like to use.
+
 \subsection{Features}
 
+Application is Command Line Interface based. Firstly it allows user to choose between encoding picture, or with usage of patchwork, decoding, shown on the figure a). After picking encoding we have two algorithms to choose (figure b)).
+
+\begin{figure}[!h]%
+	\centering
+	\subfloat[figure a)]{{\includegraphics[width=5cm]{ui_intro.png} }}%
+	\qquad
+	\subfloat[figure b) ]{{\includegraphics[width=5cm]{ui_alg_choose.png}}}%
+	\label{}%
+\end{figure}
+
+\subsubsection{Encoding}
+
+\begin{itemize}
+	\item LSB
+		Application requests either for picture to be watermarked and the one to be used as watermark. 
+		
+		 \begin{center}
+			\includegraphics[scale=0.5]{ui_lsb.png}
+		\end{center}
+	
+	\item Patchwork
+	
+		In opposition to previous option there application needs to provide encoding key.
+		 \begin{center}
+			\includegraphics[scale=0.5]{ui_pw_choose.png}
+		\end{center}
+		
+\end{itemize} 
+
+\subsubsection{Decoding}
+
+	 \begin{center}
+		\includegraphics[scale=0.5]{ui-pw-decode.png}
+	\end{center}
+	
+	
+
 \section{Techniques and Technologies}
+	
+	\subsection{Tools}
 	
 	\begin{itemize}
 		\item Python 3.7 with packages:
@@ -157,13 +200,15 @@ networking site). After the division of tasks through Trello, each member could 
     	We performed test using our LSB algorithm on two pictures. The results was as follows.
     	Firs picture was python logo with resolution 225x225 it take approximately 1 second to watermark that image and the second was photo with resolution 393x206 it take approximately 1.5 second:
 
-        \begin{center}
-            \includegraphics[scale=3.0]{python_lsb/python_original.png}
-        \end{center}
-        
-        \begin{center}
-            \includegraphics[scale=0.5]{photo_lsb/Photo_original.png}
-        \end{center}
+	\begin{figure}[!h]%
+		\centering
+		\subfloat[]{{\includegraphics[width=5cm]{python_lsb/python_original.png} }}%
+		\qquad
+		\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/Photo_original.png}}}%
+		\label{}%
+	\end{figure}	
+
+     
     	
         As watermark we used small python logo with resolution 64x64 and color inversion:
 
@@ -171,45 +216,92 @@ networking site). After the division of tasks through Trello, each member could 
             \includegraphics[scale=1.5]{watermark.png}
         \end{center}
     	
-        Watermarked image and the water mark extracted from it looked as expected:
-
-    	\includegraphics[scale=1.0]{python_lsb/watermarked_python.png}
-    	\includegraphics[scale=1.0]{python_lsb/watermark_photo.png}
-
-    	\includegraphics[scale=0.6]{photo_lsb/watermarked_photo.png}
-    	\includegraphics[scale=0.6]{photo_lsb/watermark_photo.png}
+        Watermarked image and the water mark extracted from it looked as expected as on figure: %\autoref{fig:python_logo}:
         
-    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. First we try rotating image by 45 degrees:
+        \begin{figure}[!h]%
+        	\centering
+        	\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermarked_python.png} }}%
+        	\qquad
+        	\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_photo.png}}}%
+        	\label{fig:python_logo}%
+        \end{figure}
 
-    	\includegraphics[scale=1.0]{python_lsb/watermark_python_rot45.png}
-    	\includegraphics[scale=1.0]{python_lsb/watermark_watermark_python_rot45.png}
 
-    	\includegraphics[scale=0.6]{photo_lsb/watermarked_photo_rot45.png}
-    	\includegraphics[scale=0.6]{photo_lsb/watermark_watermarked_photo_rot45.png}
+        \begin{figure}[!h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermarked_photo.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermark_photo.png}}}%
+			\label{fig:python_logo2}%
+		\end{figure}
 
-    	Expected outcome of the rotation would be rotated wtermark, but in this case we could see distortion around edges in \textit{python} logo and absolutely unreadable watermark in \textit{photo}. It turns out that some programs have more complex rotation algorithm to maker rotated image look better. Next we try color invertion:
+        
+    	Next step was to transform the watermarked image and check if watermark is extractable from it. To perform transformation we used program GIMP2.0. First we try rotating image by 45 degrees, figure %\autoref{fig:45}:
 
-    	\includegraphics[scale=1.0]{python_lsb/watermark_python_invert.png}
-    	\includegraphics[scale=1.0]{python_lsb/watermark_watermark_python_inver.png}
+        \begin{figure}[h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_python_rot45.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_watermark_python_rot45.png}}}%
+			\label{fig:45}%
+		\end{figure}
+
+		\begin{figure}[h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermarked_photo_rot45.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermark_watermarked_photo_rot45.png}}}%
+			\label{}%
+		\end{figure}
+	
+	\newpage
+
+    	Expected outcome of the rotation would be rotated wtermark, but in this case we could see distortion around edges in \textit{python} logo and absolutely unreadable watermark in \textit{photo}. It turns out that some programs have more complex rotation algorithm to maker rotated image look better. Next we try color inversion:
+    	
+ 		\begin{figure}[!h]%
+    		\centering
+    		\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_python_invert.png} }}%
+    		\qquad
+    		\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_watermark_python_inver.png}}}%
+    		\label{}%
+    	\end{figure}
+
 
     	In this case as expected watermark was color inverted only. Next we try manipulate with color, and change contrast:
 
-    	\includegraphics[scale=1.0]{python_lsb/watermark_python_colMod.png}
-    	\includegraphics[scale=1.0]{python_lsb/watermark_watermark_python_colMod.png}
+ 		\begin{figure}[!h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_python_colMod.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{python_lsb/watermark_watermark_python_colMod.png}}}%
+			\label{}%
+		\end{figure}
+
 
     	It Turns out that even slightly changed contrast makes watermark almost unreadable. Last transformation was more advanced one, performed on \textit{photo}.
 
     	Noise reduction:
 
-    	\includegraphics[scale=0.6]{photo_lsb/watermarked_photo_reduction.png}
-    	\includegraphics[scale=0.6]{photo_lsb/watermark_watermarked_photo_reduction.png}
+ 		\begin{figure}[!h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermarked_photo_reduction.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermark_watermarked_photo_reduction.png}}}%
+			\label{}%
+		\end{figure}
 
-    	Gaussian blur:
+		Gaussian blur:
 
-    	\includegraphics[scale=0.6]{photo_lsb/watermarked_photo_gaus.png}
-    	\includegraphics[scale=0.6]{photo_lsb/watermark_watermarked_photo_gaus.png}
+ 		\begin{figure}[!h]%
+			\centering
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermarked_photo_gaus.png} }}%
+			\qquad
+			\subfloat[]{{\includegraphics[width=5cm]{photo_lsb/watermark_watermarked_photo_gaus.png}}}%
+			\label{}%
+		\end{figure}
 
-    	They both almost completely destroyed watermark.
+
+   	They both almost completely destroyed watermark.
 
 	\subsection{Patchwork algorithm}
 	
@@ -234,8 +326,10 @@ networking site). After the division of tasks through Trello, each member could 
 	LSB is fairly simple and quite fast algorithm, unfortunately it is not very robust - simple transformation can make it "disappear". We could use for example not the least significant bit but middle one that should increase robustness, although it makes watermark much more visible:
 
 
-	\includegraphics[scale=1.0]{python_lsb/watermarked_python_4bit.png}
 
+	 \begin{center}
+		\includegraphics[scale=0.5]{python_lsb/watermarked_python_4bit.png}
+	\end{center}
 
 	LSB pros and cons:
 	\begin{itemize}

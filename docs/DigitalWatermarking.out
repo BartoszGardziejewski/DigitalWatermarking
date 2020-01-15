@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Subject}{}% 1
+\BOOKMARK [1][-]{section.2}{State of the art}{}% 2
+\BOOKMARK [1][-]{section.3}{Project's scope}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Goal of the project}{section.3}% 4
+\BOOKMARK [2][-]{subsection.3.2}{Requirements}{section.3}% 5
+\BOOKMARK [2][-]{subsection.3.3}{Features}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.3.1}{Encoding}{subsection.3.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Decoding}{subsection.3.3}% 8
+\BOOKMARK [1][-]{section.4}{Techniques and Technologies}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Tools}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Communication between team members}{section.4}% 11
+\BOOKMARK [1][-]{section.5}{Milestone and project plan}{}% 12
+\BOOKMARK [2][-]{subsection.5.1}{Team members}{section.5}% 13
+\BOOKMARK [2][-]{subsection.5.2}{Project plan}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.3}{Gantt Chart}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Results}{}% 16
+\BOOKMARK [2][-]{subsection.6.1}{LSB}{section.6}% 17
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Implementation}{subsection.6.1}% 18
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Testing}{subsection.6.1}% 19
+\BOOKMARK [2][-]{subsection.6.2}{Patchwork algorithm}{section.6}% 20
+\BOOKMARK [3][-]{subsubsection.6.2.1}{Implementation}{subsection.6.2}% 21
+\BOOKMARK [3][-]{subsubsection.6.2.2}{Testing}{subsection.6.2}% 22
+\BOOKMARK [1][-]{section.7}{Conclusions}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{LSB}{section.7}% 24

@@ -1,17 +1,24 @@
-\contentsline {section}{\numberline {1}Subject}{2}
-\contentsline {section}{\numberline {2}State of art}{2}
-\contentsline {section}{\numberline {3}Project scope}{4}
-\contentsline {subsection}{\numberline {3.1}Goal}{4}
-\contentsline {subsection}{\numberline {3.2}Communication}{4}
-\contentsline {subsection}{\numberline {3.3}Features}{4}
-\contentsline {subsection}{\numberline {3.4}Requirements}{4}
-\contentsline {section}{\numberline {4}Techniques and Technologies}{4}
-\contentsline {section}{\numberline {5}Milestone and project plan}{4}
-\contentsline {subsection}{\numberline {5.1}Team members}{4}
-\contentsline {subsection}{\numberline {5.2}Project plan}{5}
-\contentsline {subsection}{\numberline {5.3}Gantt Chart}{5}
-\contentsline {subsection}{\numberline {5.4}}{6}
-\contentsline {section}{\numberline {6}Results}{6}
-\contentsline {subsection}{\numberline {6.1}1}{6}
-\contentsline {subsection}{\numberline {6.2}2}{6}
-\contentsline {section}{\numberline {7}Conclusions}{7}
+\contentsline {section}{\numberline {1}Subject}{2}{section.1}
+\contentsline {section}{\numberline {2}State of the art}{2}{section.2}
+\contentsline {section}{\numberline {3}Project's scope}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Goal of the project}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Requirements}{3}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Features}{3}{subsection.3.3}
+\contentsline {subsubsection}{\numberline {3.3.1}Encoding}{4}{subsubsection.3.3.1}
+\contentsline {subsubsection}{\numberline {3.3.2}Decoding}{4}{subsubsection.3.3.2}
+\contentsline {section}{\numberline {4}Techniques and Technologies}{4}{section.4}
+\contentsline {subsection}{\numberline {4.1}Tools}{4}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Communication between team members}{5}{subsection.4.2}
+\contentsline {section}{\numberline {5}Milestone and project plan}{5}{section.5}
+\contentsline {subsection}{\numberline {5.1}Team members}{5}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Project plan}{5}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Gantt Chart}{5}{subsection.5.3}
+\contentsline {section}{\numberline {6}Results}{6}{section.6}
+\contentsline {subsection}{\numberline {6.1}LSB}{6}{subsection.6.1}
+\contentsline {subsubsection}{\numberline {6.1.1}Implementation}{6}{subsubsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.2}Testing}{6}{subsubsection.6.1.2}
+\contentsline {subsection}{\numberline {6.2}Patchwork algorithm}{10}{subsection.6.2}
+\contentsline {subsubsection}{\numberline {6.2.1}Implementation}{10}{subsubsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2}Testing}{10}{subsubsection.6.2.2}
+\contentsline {section}{\numberline {7}Conclusions}{10}{section.7}
+\contentsline {subsection}{\numberline {7.1}LSB}{10}{subsection.7.1}
