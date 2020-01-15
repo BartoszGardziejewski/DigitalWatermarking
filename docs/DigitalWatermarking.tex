@@ -6,6 +6,7 @@
 \usepackage{polski}
 \usepackage{subfig}
 \usepackage{hyperref}
+\usepackage{mathtools}
 
 \title{Multimedia and Computer Visualization}
 \author{Rafał Grądkowski, Bartosz Gardziejewski, Paweł Zaborowski, Łukasz Obrębski}
@@ -112,14 +113,14 @@ Application is Command Line Interface based. Firstly it allows user to choose be
 		Application requests either for picture to be watermarked and the one to be used as watermark. 
 		
 		 \begin{center}
-			\includegraphics[scale=0.5]{ui_lsb.png}
+			\includegraphics[width=1\textwidth]{ui_lsb.png}
 		\end{center}
 	
 	\item Patchwork
 	
 		In opposition to previous option there application needs to provide encoding key.
 		 \begin{center}
-			\includegraphics[scale=0.5]{ui_pw_choose.png}
+			\includegraphics[width=1\textwidth]{ui_pw_choose.png}
 		\end{center}
 		
 \end{itemize} 
@@ -127,7 +128,7 @@ Application is Command Line Interface based. Firstly it allows user to choose be
 \subsubsection{Decoding}
 
 	 \begin{center}
-		\includegraphics[scale=0.5]{ui-pw-decode.png}
+		\includegraphics[width=1\textwidth]{ui-pw-decode.png}
 	\end{center}
 	
 	
@@ -307,17 +308,30 @@ networking site). After the division of tasks through Trello, each member could 
 	
 	\subsubsection{Implementation}
 	
+	Patchwork algorithm variation used in the project, was implemented as follows:
 	
+	\begin{itemize}
+	 \item Convert image color model to YUV.
+	 \item Randomly (based on certain key) select N pairs of pixels.
+	 \item Increase first pixel's Y channel value by a constant value $\delta$. Decrease second pixel's Y channel value analogically.
+	 \item Convert image color model back to original.
+	\end{itemize}
+	
+	Now, to detect such watermark, key must be known to obtain the same pairs of pixels during image decoding. Then, pixels pairs are 'visited' in the same order, to calculate control sum as follows:
+	
+	\begin{equation}
+	 \sum_{i=0}^{N} A_i - B_i \\
+	\end{equation}
+
+    where $A_i$ and $B_i$ are first and second pixel's Y channel values respectively. \\
+    
+    It is expected that for unmodified image control sum value will be close to 0, as the number of times $A_i$ is greater than $B_i$ should be offset by the number of times the reverse is true.
+    
+    Unfortunately, this assumption is not always true, which is the main disadvantage of currect implementation, as can be seen in the next section.
 	
 	\subsubsection{Testing}
 
-	Patchwork pros and cons
 
-	\begin{itemize}
-		\item Resistance to cropping and to gamma and tone scale corrections
-		\item The detector doesn’t require the original cover image to determine whether the image has been watermarked.
-		\item Can be destroyed by any affine transformation, like translation, rotation or scaling
-	\end{itemize}
 
 \section{Conclusions}
 
@@ -344,6 +358,14 @@ networking site). After the division of tasks through Trello, each member could 
 
 	\end{itemize}
 
+	\subsection{Patchwork}
 	
+	Patchwork pros and cons
+
+	\begin{itemize}
+		\item Resistance to cropping and to gamma and tone scale corrections
+		\item The detector doesn’t require the original cover image to determine whether the image has been watermarked.
+		\item Can be destroyed by any affine transformation, like translation, rotation or scaling
+	\end{itemize}
 
 \end{document}
