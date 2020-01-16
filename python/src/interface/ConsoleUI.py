@@ -28,7 +28,7 @@ def startInterface():
 def _encodeImages():
     images = _getImages()
     for image, file in zip(images, images.files):
-        algorithm, kwargs = _getAlgorithmWithArguments(image, file)
+        algorithm, kwargs = _getEncodingAlgorithmWithArguments(image, file)
         watermarkedImage = _watermarkImage(image, algorithm, kwargs)
         _saveImage(watermarkedImage, file.replace("\\", "/"))
         print(f"Encoded file: {file}")
@@ -37,8 +37,14 @@ def _encodeImages():
 def _decodeImages():
     images = _getImages(ImageManagement.resultsDirPath)
     for image, file in zip(images, images.files):
-        algorithm, kwargs = _getAlgorithmWithArguments(image, file)
+        algorithm, kwargs = _getDecodingAlgorithmWithArguments(image, file)
         result = _decodeImage(image, algorithm, kwargs)
+        if result is not None:
+            filename = file.replace("\\", "/")
+            filename = filename.split('.')
+            filename[-2] += '_extracted'
+            filename = '.'.join(filename)
+            _saveImage(result, filename)
 
 
 def _getImages(exampleCollection=ImageManagement.resourcesDirPath):
@@ -82,14 +88,34 @@ def _getPatchworkSecretKey(file):
             continue
 
 
-def _getAlgorithmWithArguments(image, file):
+def _getEncodingAlgorithmWithArguments(image, file):
     switch = {
         'LSB': (LsbAlgorithm, {'embeddedImage': functools.partial(_selectImageToUseAsWaterMark, image, file)}),
         'PAT': (PatAlgorithm, {'key': functools.partial(_getPatchworkSecretKey, file)}),
     }
 
     while True:
-        choice = input(f'Please specify algorithm to use to watermark the image {[key for key in switch.keys()]}: ')
+        choice = input(f'Please specify algorithm to use to encode the image {[key for key in switch.keys()]}: ')
+        algorithmWithArguments = switch.get(choice, None)
+
+        if algorithmWithArguments:
+            algorithm, kwargs = algorithmWithArguments
+            for key, value in kwargs.items():
+                kwargs[key] = value()
+            return algorithm, kwargs
+
+        else:
+            print(f'ERROR: Unknown algorithm - {choice}. Please try again.')
+
+
+def _getDecodingAlgorithmWithArguments(image, file):
+    switch = {
+        'LSB': (LsbAlgorithm, {}),
+        'PAT': (PatAlgorithm, {'key': functools.partial(_getPatchworkSecretKey, file)}),
+    }
+
+    while True:
+        choice = input(f'Please specify algorithm to use to decode the image {[key for key in switch.keys()]}: ')
         algorithmWithArguments = switch.get(choice, None)
 
         if algorithmWithArguments:

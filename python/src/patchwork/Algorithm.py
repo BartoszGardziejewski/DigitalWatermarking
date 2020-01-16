@@ -62,8 +62,9 @@ def decodeImage(image, key):
     certaintyTheImageIsEncoded = (100 * controlSumOfModifiedImage) / expectedControlSum
     certaintyTheImageIsEncoded = max(min(100., certaintyTheImageIsEncoded), 0.)
 
-    print(f"There's {certaintyTheImageIsEncoded}% probability that the image is encoded using key: {key}")
-    return certaintyTheImageIsEncoded
+    print()
+    print(f"There's {'{0:.2f}'.format(certaintyTheImageIsEncoded)}% probability that the image is encoded using key: {key}")
+    return None
 
 
 def _getMaskOfDeltas(image, key):

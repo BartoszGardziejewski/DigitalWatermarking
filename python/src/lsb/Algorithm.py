@@ -35,7 +35,7 @@ def createIteratorOverPixels(greyImage):
     return itertools.product(imageRows, imageColumns)
 
 
-def extractWatermarkFromImage(image):
+def decodeImage(image):
     watermark = copy(image)
     colorsRange = range(watermark.shape[2])
     for currentColor in colorsRange:
